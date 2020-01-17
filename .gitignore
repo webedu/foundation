@@ -1,6 +1,5 @@
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+# the npm libraries
+/npm/node_modules
+/volumes/certs
+/volumes/www/var
+
