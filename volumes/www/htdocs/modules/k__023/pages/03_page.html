@@ -1,0 +1,49 @@
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/bootstrap/bootstrap.min.css" type="text/css"> 
+
+ <div class="container-fluid">
+  <div class="row" style="margin: 8px;">
+   <div class="col-md-6 "> 
+    <h2>Übung</h2>
+    <p>Wenn Sie die vorhergehende Seite genau studiert haben, wird Ihnen die folgende Übung leicht fallen.</p>
+	<p><img src="../img/tip.png" />
+	  Notieren Sie die geographische Breite und die richtige Jahreszeit für die folgenden scheinbaren Sonnenbahnen.
+	</p>	
+	<hr/>   
+    <div id='solar2'>
+	
+	<input type="radio" id="summer" value="summer" v-model="selSeason">
+	<label for="summer">Sommersolstitium</label>
+	<br/>
+	<input type="radio" id="equal" value="equal" v-model="selSeason">
+	<label for="equal">Äquinoktien</label>
+	<br/>
+	<input type="radio" id="winter" value="winter" v-model="selSeason">
+	<label for="winter">Wintersolstitium</label>
+	<br/>	
+	<label for="latitude">Geographische Breite: <input type="number" id="latitude" v-model="selLatitude" placeholder="??">°N</label>
+	<br/>
+	<hr/>
+	 
+	<button style="display:inline;" v-on:click="showTips()">Tips</button>
+	<button style="display:inline;" v-on:click="showSolution()">Lösung</button>
+	<button style="display:inline;" v-on:click="randomTrail()">Neue Bahn</button>
+	
+	
+	</div>
+
+	
+   </div> <!-- end md-6 -->
+
+   <div class="col-md-6">
+     <svg id="solar2" style="width: 400px; height: 400px; display: block; margin: auto;"></svg>
+	 <p></p>
+   </div> <!-- end md-6 -->
+  </div> <!-- end row -->
+ </div> <!-- end container -->  
+  
+
+ <style>
+
+</style>
+

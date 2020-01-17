@@ -1,0 +1,5 @@
+
+https://github.com/insites/cookieconsent
+https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js
+3
+2019

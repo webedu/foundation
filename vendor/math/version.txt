@@ -1,0 +1,7 @@
+http://mathjs.org
+https://github.com/josdejong/mathjs
+5.4.2
+https://www.mathjax.org/
+https://github.com/mathjax/mathjax
+2.7.5
+2019

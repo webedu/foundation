@@ -1,0 +1,47 @@
+version: '2'
+services:
+
+  cre-glue:
+    image: tamboraorg/creglue:0.2019
+    container_name: creglue
+    volumes:
+     - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  cre-proxy:
+    image: tamboraorg/creproxy:0.2020
+    container_name: creproxy
+    environment:
+      ADMIN_EMAIL: michael.kahle@yahoo.de
+      CRE_DOMAIN: localhost
+      CRE_DEVELOPMENT: 1
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./volumes/certs:/etc/letsencrypt"
+    volumes_from:
+      - cre-glue
+
+  cre-nginx-php:
+   image: tamboraorg/crenginxphp:0.2019
+   container_name: crenginxphp
+   environment: 
+     CRE_SUBDOMAIN: www
+     CRE_PHP_ROOT: www/htdocs
+     SQLITE_DB: lite
+   volumes_from:
+    - cre-php
+    - cre-glue
+
+  cre-php:
+   image: tamboraorg/crephp:0.2020
+   container_name: crephp
+   environment:
+     CRE_NGINX: crenginxphp
+   volumes:
+      - ./volumes/www/htdocs:/cre/www/htdocs
+      - ./volumes/www/sqlite:/cre/www/sqlite
+   volumes_from:
+    - cre-glue
+
+# docker-compose  --file dc-local.yml up -d

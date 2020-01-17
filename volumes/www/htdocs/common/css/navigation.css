@@ -1,0 +1,87 @@
+/*
+
+	*************************************
+	********** Navigation column **********
+	*************************************
+
+*/
+div#navigation {
+}
+div#search {
+	margin: 2px;
+	padding: 2px;
+	font-size:80%;
+	font-weight:normal;
+	border-bottom:1px solid silver;
+}
+div#search form  { 
+}
+div#search input {
+}
+div#login {
+ 	padding:5px; 
+}
+div#navigation ul {
+	list-style-type:none;
+	padding:0;
+	margin: 4px 4px 4px 4px;
+}
+div#navigation ul ul {
+	list-style-type:none;
+	padding:0;
+	margin: 4px 0px 4px 12px;
+}
+ul.navi li {
+	margin-bottom:2px;
+}
+ul.navi li a { 
+	display:block;
+	padding:1px 2px 1px 2px;
+	text-decoration:none;
+	color:white;
+	font-weight:normal;
+	border:1px solid #003399;
+	background-color:#003399;
+}
+ul.navi li a:hover {
+	color:#003399;
+	background:#CCE1FF;
+	border-color:#CCE1FF;
+}
+ul.navi li a.active {
+	color:white;
+	border:1px solid #003399;
+	background:#003399;
+	font-weight:bold;
+}
+ul.subnavi li {
+	list-style-type:none;
+	margin: 0;
+	padding:0;
+	margin-bottom:0;
+}
+ul.subnavi li a {
+	font-size:90%;
+	padding:1px 2px 1px 2px;
+	text-decoration:none;
+	color:#666666;
+	font-weight:normal;
+	background:white;
+	border:0;
+	border-left: 1px dotted #aaa;
+	border-bottom: 1px dotted #aaa;
+}
+
+ul.subnavi li a:hover {
+	background:rgb(204, 225, 255);
+	color:#003399;
+	border-color:rgb(204, 225, 255);
+}
+ul.subnavi li a.active {
+	background-color:white;
+	border:0;
+	border-left:#003399 dotted 2px;
+	border-bottom:#003399 dotted 2px;
+	color:#003399;
+	font-weight:bold;
+}

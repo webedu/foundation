@@ -1,0 +1,126 @@
+div#contents1 {
+	padding-top:0px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-bottom:0px;
+	font-size:100%;
+}
+
+div#contents1 * {
+	margin:0px;
+	padding:2px;
+}
+div#contents1 h1,div#contents1 h2,div#contents1 h3,div#contents2 h1,div#contents2 h2,div#contents2 h3 {
+	margin-top:12px;
+	margin-bottom:12px;
+	font-weight:normal;
+	color:#555555;
+	padding:2px;
+	font-size:130%;
+}
+div.csc-header.csc-header-n1 {
+	margin-bottom:6px;
+}
+div#contents1 h1,div#contents2 h1 {
+	border-bottom:#555555 dotted 1px;
+}
+div#contents1 h2,div#contents2 h2  {
+	margin-top:12px;
+	margin-bottom:6px;
+	font-weight:bold;
+	font-size:95%;
+	border-bottom:#555555 dotted 1px;
+}
+div#contents1 h3,div#contents2 h3  {
+	margin-top:8px;
+	margin-bottom:6px;
+	font-weight:bold;
+	font-size:90%;
+}
+div#contents1 p,div#contents2 p {
+	color:#555555;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+div#contents1 ol,div#contents1 ul,div#contents2 ol,div#contents2 ul {
+	margin-left:40px;
+	margin-right:40px;
+}
+div#contents1 a,div#contents2 a {
+	text-decoration:none;
+	color: #417FDA;
+}
+div#contents1 a:visited,div#contents2 a:visited{
+	color: #003399;
+}
+div#contents1 a:hover,div#contents2 a:hover{
+	color: #003399;
+	text-decoration:underline;
+}
+
+div#contents2  {
+	padding:0px;
+	font-size:90%;
+	margin-bottom:6px;
+}
+div#contents2 h1{
+	margin-top:2px;
+	margin-bottom:2px;
+	font-size:90%;
+	font-weight:bold;
+	padding:2px;
+}
+div#contents2 div.pageindex{
+	/*Sitemap (Abschnittsübersicht)*/
+	background:white;
+	border:#555555 1px dotted;
+	border-right:none;
+	border-top:none;
+	margin-left:0px;
+	margin-right:0px;
+	padding:2px;
+}
+div#contents2 ul.csc-menu{
+	/*Sitemap (Abschnittsübersicht/Menü der Unterseiten)*/
+	margin-left:0px;
+	margin-right:0px;
+	padding:2px;
+	list-style-type:none;
+	/*border:#555555 1px dotted;*/
+}
+
+div#contents1 a.dataWrap {
+	position:absolute;
+	float:left;
+}
+
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist {
+	margin:0; padding:0;
+	width:100%;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist * {
+	font-size:12px;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr {
+	margin:0; padding:0;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr:hover {
+	background:#eeeeee;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr td {
+	margin:0; padding:0;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr td.wbtlink {
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr td.wbtlink a {
+	margin:0; padding:0;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr td.wikilink {
+	text-align:right;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr td.info {
+	text-align:right;
+}
+div#contents1 div.tx-wgwbtlink-pi1 table.blowlist tr td.blowid {
+	text-align:right;
+}

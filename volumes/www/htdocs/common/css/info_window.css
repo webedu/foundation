@@ -1,0 +1,38 @@
+body {
+	font-family:Arial,Helvetica,"Sans-Serif";
+	color:white;
+	font-size: 10pt;
+	background-color: #D5E6FF;
+}
+table#structure_table {
+}
+table#structure_table #items_td {
+	background-color: #003399;
+}
+table#items_table {
+	background-color: #D5E6FF;
+}
+h2 {
+	margin:2px;
+	color: white;
+	font-size: 14pt;
+}
+tr.metadata_item {
+	font-size: 11pt;
+	vertical-align: top;
+}
+tr.metadata_item td {
+	font-size: 11pt;
+	vertical-align: top;
+	color:#333333;
+	background-color: white;
+}
+tr.metadata_item td a {
+	text-decoration:none;
+}
+tr#bottom_line {
+	text-align:right;
+}
+tr#bottom_line a {
+	color:black;
+}

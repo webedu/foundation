@@ -1,0 +1,4 @@
+https://animejs.com
+https://github.com/juliangarnier/anime
+3.0.1
+2019

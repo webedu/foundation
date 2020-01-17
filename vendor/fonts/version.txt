@@ -1,0 +1,13 @@
+http://fonts.googleapis.com/css?family=Merriweather+Sans&subset=latin,latin-ext
+http://fonts.googleapis.com/css?family=Lato:400,700
+https://origin.fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself
+https://use.fontawesome.com/releases/v5.7.1/css/all.css
+https://use.fontawesome.com/releases/v5.7.1/js/all.js
+https://google.github.io/material-design-icons/
+https://fonts.googleapis.com/icon?family=Material+Icons
+http://www.mapglyphs.com/  ## needs to be replaced with public version!
+5.7.1
+2019
+
+
+ 

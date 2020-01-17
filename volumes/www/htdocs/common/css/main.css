@@ -1,0 +1,166 @@
+﻿.items {
+   line-height: 1.2; 
+}
+.items hr {
+   margin: 1px;
+}
+.items h3 {
+   font-size: 120%;
+}
+.items h4 {
+   font-size: 100%;
+}
+.items h5 {
+   font-size: 90%;
+}
+.items h6 {
+   font-size: 85%;
+}
+.items a {  
+   font-size: 80%;
+}
+
+.items a.info,a.wiki {
+  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 2px;
+  background-color: #003399;
+  color: white;
+  line-height: 0.9;
+}
+
+.items a.info:hover,a.wiki:hover {
+  color: red;
+}
+
+#canvasbox {
+    padding: 2px;
+    position: absolute;
+    pointer-events: none;
+    cursor: pointer;
+    border-radius: 5px;
+	border:1px solid #003399;
+        box-shadow: 0 0 5px 5px rgba(125, 125, 125, 0.5);
+  }
+
+div#header_sub {
+	background: #003399;
+}
+div#header_sub * {
+	color:white;
+    margin-left: 4px;
+}
+div#header_sub a {
+	text-decoration:none;
+}
+div#header_sub a:hover {
+     color:red;
+}
+div#rootline {
+	float:left;
+} 
+
+div#zoominfo {
+	text-align:right;
+    margin-right: 4px;
+}
+
+div#unilogo {
+	position:absolute;
+	top:-62px;
+	left:-30px;
+}
+div#navigation {
+	padding-right:8px;
+}
+
+div#navigation ul {
+	list-style-type:none;
+	padding:0;
+}
+div#navigation ul ul {
+	list-style-type:none;
+	padding:0;
+	margin-left: 8px;
+}
+
+ul.navi li a { 
+	display:block;
+	text-decoration:none;
+	color:white;
+	font-weight:normal;
+	border:1px solid #003399;
+	background-color:#003399;
+    margin-top: 2px;
+    padding-left: 2px;
+}
+
+ul.navi li label { 
+	display:block;
+	text-decoration:none;
+	color:white;
+	font-weight:normal;
+	border:1px solid #003399;
+	background-color:#003399;
+    margin-top: 2px;
+    padding-left: 2px;
+    margin-bottom: 0px;
+}
+ 
+ul.navi li label.active { 
+	color:white;
+    background-color:#3073C9;
+}
+
+ul.navi li a.active {
+	color:white;
+    background-color:#3073C9;
+}
+
+ul.navi li a:hover {
+     color:red;
+}
+
+ul.subnavi li {
+	list-style-type:none;
+	margin-bottom:0;
+}
+ul.subnavi li a {
+	font-size:90%;
+	text-decoration:none;
+	color:#666666;
+	font-weight:normal;
+	background:white;
+	border: 1px dotted #aaa;
+    margin: 0px;
+}
+
+ul.subnavi li form {
+	font-size:90%;
+	text-decoration:none;
+	color:#666666;
+	font-weight:normal;
+	background:white;
+	border: 1px dotted #aaa;
+    margin: 0px;
+}
+
+ul.subnavi li a:hover {
+    background:rgb(234, 245, 255);    
+	color:#003399;
+	border-color:rgb(204, 225, 255);
+}
+ul.subnavi li a.active {
+	background:rgb(204, 225, 255);
+	color:#003399;
+}
+ul.subnavi input {
+	max-width:74%;
+    min-width:60% 
+}
+ul.subnavi button {
+	max-width:24%;
+}
+
+
