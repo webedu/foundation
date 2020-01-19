@@ -2,7 +2,7 @@ version: '2'
 services:
 
   cre-glue:
-    image: tamboraorg/creglue:0.2019
+    image: tamboraorg/creglue:0.2020
     container_name: creglue
     volumes:
      - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -23,7 +23,7 @@ services:
       - cre-glue
 
   cre-nginx-php:
-   image: tamboraorg/crenginxphp:0.2019
+   image: tamboraorg/crenginxphp:0.2020
    container_name: crenginxphp
    environment: 
      CRE_SUBDOMAIN: www

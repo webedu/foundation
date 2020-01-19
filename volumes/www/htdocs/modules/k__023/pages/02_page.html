@@ -9,7 +9,7 @@
 	   Mit den beiden Reglern können Sie für alle Orte der Nordhalbkugel und alle Jahreszeiten die 
 	   scheinbaren Sonnenbahnen über dem Horizontkreis einstellen.</p>
 	<hr/>   
-  <input type="range" orient="vertical"/>	
+
 	<div class="row">
 	  <div class="col-sm-2"></div>
   <div class="col-sm-3">
@@ -21,7 +21,7 @@
          <label for="breite" style="position: absolute; top:12%; right: 25%">90° (Nordpol)</label>
          <label for="breite" style="position: absolute; top:50%; right: 25%">45° Nord</label>
          <label for="breite" style="position: absolute; top:88%; right: 25%">0° (Äquator)</label>		 
-         <input type="range" id="latitude" name="breite" orient="vertical" min="0" max="900" style="position: relative; top:08%; right: 00%; float:right;" on2input="sliderChanged()" />
+         <input type="range" id="latitude2" name="breite" orient="vertical" min="0" max="900" style="position: relative; top:08%; right: 00%; float:right;" oninput="sliderChanged()" />
       </div>	 
     </div>	
  </div>	
@@ -33,7 +33,7 @@
          <label for="breite" style="position: absolute; top:12%; left: 25%">Sommersolstitium</label>
          <label for="breite" style="position: absolute; top:50%; left: 25%">Äquinoktien</label>
          <label for="breite" style="position: absolute; top:88%; left: 25%">Wintersolstitium</label>		 
-         <input type="range" id="delta" name="season" orient="vertical" min="-235" max="235" style="position: relative; top:08%; right: 00%; float:left;" oninput="sliderChanged()" />
+         <input type="range" id="delta2" name="season" orient="vertical" min="-235" max="235" style="position: relative; top:08%; right: 00%; float:left;" oninput="sliderChanged()" />
       </div>	 
     </div>	
 	</div>
@@ -53,7 +53,7 @@
      <p>Neben den Tageshöchständen der Sonne lässt sich auch das Verhältnis von Tag und Nacht beobachten.
 	    Wie verschieben sich im Laufe des Jahres Aufgangs- und Untergangspunkt der Sonne am Horizont?
   	 </p>
-     <svg id="solar1" style="width: 400px; height: 400px; display: block; margin: auto;"></svg>
+     <svg id="solar2" style="width: 400px; height: 400px; display: block; margin: auto;"></svg>
 	 <p></p>
    </div> <!-- end md-6 -->
   </div> <!-- end row -->
@@ -73,11 +73,12 @@
 
 
  <!-- script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script -->
- <!--script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/snapsvg/snap.svg-min.js" type="text/javascript"></script-->
+ <script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/snapsvg/snap.svg-min.js" type="text/javascript"></script>
+ <script src="./pages/sun.js" type="text/javascript"></script>
  <!--script src="./sun.js" type="text/javascript"></script>
  <script src="./02.js" type="text/javascript"></script-->
  <!--c4u-script url="pages/02.js" ></c4u-script>
  <c4u-script url="pages/03.js" ></c4u-script-->
  
- <!--script src="./pages/02.js" type="text/javascript"></script-->
+ <script src="./pages/02.js" type="text/javascript"></script>
 

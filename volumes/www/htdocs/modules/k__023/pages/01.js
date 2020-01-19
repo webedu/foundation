@@ -1,9 +1,9 @@
 var paraElem = document.getElementById("panorama");
-var page = document.getElementById('01_page')
-var para = page.shadowRoot.getElementById("panorama")
+//var page = document.getElementById('01_page')
+//var para = page.shadowRoot.getElementById("panorama")
 
 var viewer = new PhotoSphereViewer({
-  container: para, //'panorama',
+  container: paraElem, // para, //'panorama',
   panorama: './img/panorama360.png',
   time_anim: false,
   navbar: [],

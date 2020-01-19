@@ -20,6 +20,7 @@
 <!--script src="../../common/js/w4u/c4u-main.min.js"></script>
 <script src="../../common/js/w4u/w4u-main.min.js"></script-->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
  <div class="container-fluid">
 <p style="font-size:1px;">&nbsp;</p>
@@ -68,7 +69,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="../../common/js/pages.js"></script>
 <?php javascriptPages($pages); ?>
 </body>
