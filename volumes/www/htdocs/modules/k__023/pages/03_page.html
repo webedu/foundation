@@ -6,11 +6,11 @@
    <div class="col-md-6 "> 
     <h2>Übung</h2>
     <p>Wenn Sie die vorhergehende Seite genau studiert haben, wird Ihnen die folgende Übung leicht fallen.</p>
-	<p><img src="../img/tip.png" />
+	<p><img src="./img/tip.png" />
 	  Notieren Sie die geographische Breite und die richtige Jahreszeit für die folgenden scheinbaren Sonnenbahnen.
 	</p>	
 	<hr/>   
-    <div id='solar3'>
+    <div id='solar3a'>
 	
 	<input type="radio" id="summer3" value="summer" v-model="selSeason">
 	<label for="summer">Sommersolstitium</label>
@@ -23,11 +23,20 @@
 	<br/>	
 	<label for="latitude">Geographische Breite: <input type="number" id="latitude3" v-model="selLatitude" placeholder="??">°N</label>
 	<br/>
+        <p style='color:green;'><span v-show="solutionVisible">Loesung: {{season}}, {{latitude}}°N</span>&nbsp;</p>
 	<hr/>
 	 
-	<button style="display:inline;" v-on:click="showTips()">Tips</button>
-	<button style="display:inline;" v-on:click="showSolution()">Lösung</button>
-	<button style="display:inline;" v-on:click="randomTrail()">Neue Bahn</button>
+	<button class="btn btn-primary btn-sm" style="display:inline;" v-on:click="showTips()">Tips</button>
+	<button class="btn btn-primary btn-sm" style="display:inline;" v-on:click="showSolution()">Lösung</button>
+	<button class="btn btn-primary btn-sm" style="display:inline;" v-on:click="randomTrail()">Neue Bahn</button>
+	<br/>
+        <div class="card" v-show="tipsVisible">
+          <div class="card-body">
+            <h5 class="card-title">Tipp:</h5>
+            <p class="card-text">Beachten sie die Laenge von Tag und Nacht sowie den Tageshoechststand der Sonne.</p>
+            <button class="btn btn-primary btn-sm" v-on:click="hideTips()">Schliessen</button>
+          </div>
+        </div>        
 	
 	
 	</div>
@@ -36,7 +45,7 @@
    </div> <!-- end md-6 -->
 
    <div class="col-md-6">
-     <svg id="solar2" style="width: 400px; height: 400px; display: block; margin: auto;"></svg>
+     <svg id="solar3b" style="width: 400px; height: 400px; display: block; margin: auto;"></svg>
 	 <p></p>
    </div> <!-- end md-6 -->
   </div> <!-- end row -->
@@ -46,4 +55,8 @@
  <style>
 
 </style>
+
+ <!--script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/snapsvg/snap.svg-min.js" type="text/javascript"></script-->
+ <!--script src="./pages/sun.js" type="text/javascript"></script-->
+ <script src="./pages/03.js" type="text/javascript"></script>
 

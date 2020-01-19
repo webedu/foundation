@@ -12,8 +12,8 @@
  </head>
  <body>
 
-<!--script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/vue/vue.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-loader.js"></script-->
+<script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/vue/vue.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-loader.js"></script>
 
 <!--script src="https://cdn.jsdelivr.net/gh/webedu/npm@master/packages/c4u-main/dist/c4u-main.min.js" type="text/javascript"></script-->
 <!--script src="https://cdn.jsdelivr.net/gh/webedu/npm@master/packages/w4u-main/dist/w4u-main.min.js" type="text/javascript"></script-->
