@@ -3,7 +3,8 @@ class Sun {
     this.elem = document.getElementById(elemId);
     if(this.elem) {
       this.initSun();
-      //this.drawSunRail(0, 45);
+      this.drawSunRail(0, 45);
+      this.doAnimation();
     }
   }
   
@@ -152,95 +153,47 @@ class Sun {
     }
   }
 
+  moveSun(fraction) {
+    //var day = true;	
+    //var dayFraction = dayAngle/360.0;
+    if(this.sunRailFront) { 
+      if (fraction < 0.5) {
+      //day = (fraction < dayFraction/2.0);	 
+        var le = 2.0*fraction*this.sunRailBack.getTotalLength();
+        var ps = this.sunRailBack.getPointAtLength(le);
+        var pa = 'M'+ps.x.toString()+','+ps.y.toString();
+        var tr = Snap.path.map( pa, this.sunRailBack.transform().globalMatrix );
+        this.sunBack.attr({cx: tr[0][1], cy: tr[0][2]});
+        this.sunFront.attr({cx: -100, cy: -100});
+      } else {
+        //day = (fraction > (1.0 - dayFraction/2.0));	 
+        var le = 2.0*(1.0-fraction)*this.sunRailFront.getTotalLength();
+        var ps = this.sunRailFront.getPointAtLength(le);
+        var pa = 'M'+ps.x.toString()+','+ps.y.toString();
+        var tr = Snap.path.map( pa, this.sunRailFront.transform().globalMatrix );	
+        this.sunFront.attr({cx: tr[0][1], cy: tr[0][2]});
+        this.sunBack.attr({cx: -100, cy: -100});
+      }
 
-  get flaeche() {
-    return this.berechneFlaeche();
+      // if(day) {
+      //	sunFront.attr({stroke: '#FF0'}); 
+      //	sunBack.attr({stroke: '#FF0'});
+      // } else {
+      //	sunFront.attr({stroke: '#55F'}); 
+      //	sunBack.attr({stroke: '#55F'});
+      // }
+
+    }
   }
 
-  berechneFlaeche() {
-    return 17;
+  doAnimation() {
+    var self = this;
+    Snap.animate(0, 1, function(val) { self.moveSun(val) ;}, 4000, mina.linear, function() {  self.doAnimation();});
   }
-}
-
-
-
-/*
-{
-	
-var sunRailFront = null;	
-var sunRailBack = null;	
-var sunFront = null;
-var sunBack = null;
-var angleLine = null;
-var angleText = null;
-var angleArc = null;
-var dayLightText = null;
-var mSkew = null;
-	
-
-initSun();
-
-
-// problems with perspektive
-//var sunriseLine = s.line(200,200,200,140);
-//sunriseLine.attr({stroke: "#C94",
-//strokeWidth: 2,
-//strokeDasharray: '3,3'
-//});
-//var sunsetLine = s.line(200,200,200,260);
-//sunsetLine.attr({stroke: "#C94",
-//strokeWidth: 2,
-//strokeDasharray: '3,3'
-//});
-//group.add(sunriseLine,sunsetLine);
-
-
-var dayAngle = 0.0;
-
-drawSunRail(0, 45);
-
-function moveSun(fraction) {
- //var day = true;	
- //var dayFraction = dayAngle/360.0;
-if(sunRailFront) { 
- if (fraction < 0.5) {
-  //day = (fraction < dayFraction/2.0);	 
-  var le = 2.0*fraction*sunRailBack.getTotalLength();
-  var ps = sunRailBack.getPointAtLength(le);
-  var pa = 'M'+ps.x.toString()+','+ps.y.toString();
-  var tr = Snap.path.map( pa, sunRailBack.transform().globalMatrix );
-  sunBack.attr({cx: tr[0][1], cy: tr[0][2]});
-  sunFront.attr({cx: -100, cy: -100});
- } else {
-  //day = (fraction > (1.0 - dayFraction/2.0));	 
-  var le = 2.0*(1.0-fraction)*sunRailFront.getTotalLength();
-  var ps = sunRailFront.getPointAtLength(le);
-  var pa = 'M'+ps.x.toString()+','+ps.y.toString();
-  var tr = Snap.path.map( pa, sunRailFront.transform().globalMatrix );	
-  sunFront.attr({cx: tr[0][1], cy: tr[0][2]});
-  sunBack.attr({cx: -100, cy: -100});
- }
-
-// if(day) {
-//	sunFront.attr({stroke: '#FF0'}); 
-//	sunBack.attr({stroke: '#FF0'});
-// } else {
-//	sunFront.attr({stroke: '#55F'}); 
-//	sunBack.attr({stroke: '#55F'});
-// }
-
-}
-}
 
 }
 
-*/
 
 
-/*
-function doAnimation() {
-  Snap.animate(0, 1, moveSun, 4000, mina.linear, doAnimation);
-}
-doAnimation();
-*/
+
 
