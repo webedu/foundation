@@ -14,9 +14,8 @@ function includePages($pages) {
     echo "<div id='page_".$i."' class='page' style='".$display."'>\n";
     include($page);
     echo "</div>\n";
-    $display = "display: none";  // panorama.... needs resize
+    // $display = "display: none";  // panorama.... needs resize, hide in init instead
   }
-
 }
 
 function javascriptPages($pages) {
@@ -29,6 +28,7 @@ function javascriptPages($pages) {
   $js = "pageData = {current:1, pages: [";
   $js .= implode($pageIds, ",");
   $js .= "]};";
+  $js .= " initPages();";
   echo "<script>".$js."</script>\n";
 }
 

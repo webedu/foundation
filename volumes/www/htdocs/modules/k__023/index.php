@@ -26,7 +26,7 @@
 <p style="font-size:1px;">&nbsp;</p>
 <div class="row">
       <div class="col-md-1 col-sm-0">
-        <img style="margin-bottom:10px;" class="float-right" id="backward" src="/common/img/backward.png"> 
+        <img style="margin-bottom:10px; display:none" class="float-right" id="backward" src="/common/img/backward.png"> 
       </div>
        <div class="col-md-4 col-sm-5 menu">
        <h2>Scheinbare Sonnenbahnen</h2>

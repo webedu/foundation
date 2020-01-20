@@ -27,11 +27,30 @@ function pageBackward() {
    }
 }
 
+function hidePages() {
+    for (var i = 1; i < pageData.pages.length; i++) {
+      $(pageData.pages[i]).hide();
+    }
+}
+
+function initPages() {
+  document.addEventListener('readystatechange', event => {
+  if (event.target.readyState === "complete") {
+    //alert("Now external resources are loaded too, like css,src etc... ");
+    setTimeout(hidePages, 500);
+  }
+});
+
+
+}
+
 $('#forward').click(function() {
   pageForward();
+  //$(window).trigger('resize');
 });
 
 $('#backward').click(function() {
   pageBackward();
+  //$(window).trigger('resize');
 });
 
