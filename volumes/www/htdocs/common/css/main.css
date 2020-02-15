@@ -163,4 +163,19 @@ ul.subnavi button {
 	max-width:24%;
 }
 
+img.baseImg
+    {
+      position:relative;
+      top: 0px;
+      left: 0px;
+      z-index: 1;
+    }
+img.overImg
+    {
+      position:absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 2;
+    }
+
 

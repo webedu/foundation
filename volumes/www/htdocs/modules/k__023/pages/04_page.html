@@ -65,21 +65,32 @@
 	  
  
     <div id='solar4'>
+      <c4u-circuitry>
       <p><b>Scheinbare Sonnenbahn am 21. März und 23. September</b></p>
       <div style="position: relative; left: 0; top: 0;">
         <img src="./img/twili_base.png" class="baseImg" >
-        <img src="./img/twili_polar.png" class="overImg" id="polarPic">
+        <w4u-visibility name="polar" mode="opacity" default="hide">
+          <img src="./img/twili_polar.png" class="overImg" id="polarPic">
+        </w4u-visibility>
+       <w4u-visibility name="wende" mode="opacity" default="hide">
         <img src="./img/twili_wende.png" class="overImg" id="wendePic">	  
+       </w4u-visibility>
+       <w4u-visibility name="equator" mode="opacity" default="hide">
         <img src="./img/twili_equat.png" class="overImg" id="equatPic">
+       </w4u-visibility>
       </div>
       <div>
-	    <input type="checkbox" id="polarSwitch" value="polar">
-	    <label for="polar">Polarkreis</label>&nbsp;
-	    <input type="checkbox" id="wendeSwitch" value="wende">
-	    <label for="wende">Wendekreis</label>&nbsp;
-	    <input type="checkbox" id="equatorSwitch" value="equator">
-	    <label for="equator">Äquator</label>&nbsp;
+         <w4u-check name="polar">Polarkreis</w4u-check>&nbsp; 
+         <w4u-check name="wende">Wendekreis</w4u-check>&nbsp; 
+         <w4u-check name="equator">Äquator</w4u-check>&nbsp; 
       </div>
+
+      <c4u-connection source="polar-b" target="polar-show"> </c4u-connection>
+      <c4u-connection source="wende-b" target="wende-show"> </c4u-connection>
+      <c4u-connection source="equator-b" target="equator-show"> </c4u-connection>
+
+    </c4u-circuitry>
+
     </div>	
    </div> <!-- end md-5 -->
    <div class="col-md-1 "></div>
@@ -87,21 +98,6 @@
  </div> <!-- end container -->  
  
  
- <style>
- .baseImg
-    {
-      position:relative;
-      top: 0px;
-      left: 0px;
-      z-index: 1;
-    }
- .overImg
-    {
-      position:absolute;
-      top: 0px;
-      left: 0px;
-      z-index: 2;
-    }
- </style>
+
   
 
