@@ -1,0 +1,100 @@
+<c4u-circuitry>
+
+ <div class="container-fluid">
+
+  <div class="row" style="margin: 8px;">
+   <div class="col-md-1 col-sm-0 hidden-sm"></div>
+   <div class="col-md-10 col-sm-12"> 
+    <h2>Was mit der Luft passiert...</h2>
+   	<p><img src="/common/img/tip.png" />
+	  Druecken sie <i class="fa fa-play"></i> "Play" und schicken sie das Luftpaket ueber die Alpen.
+	</p>
+   </div> <!-- end md-10 -->
+   <div class="col-md-1 col-sm-0 hidden-sm"></div>
+  </div> <!-- end row -->
+
+  <div class="row" style="margin: 8px;">
+   <div class="col-md-1 col-sm-0  hidden-sm"></div>
+   <div class="col-md-5 col-sm-6"> 
+
+<w4u-video name="video1" controls="true" width="100%">
+ <source src="./video/adiabat2.mp4" type="video/mp4">
+ <w4u-interval name="int1" begin="00:04.0" end="1.0" mode="constant"></w4u-interval> 
+ <w4u-interval name="int2" begin="00:04.0" end="00:04.3" mode="constant"></w4u-interval> 
+ <w4u-stop name="stop1" time="00:04.1"></w4u-stop>
+ <w4u-interval name="int3" begin="00:13" end="1.0" mode="constant"></w4u-interval>
+ <w4u-stop name="stop3" time="00:13.1"></w4u-stop>
+ <w4u-interval name="int4" begin="00:15.5" end="1.0" mode="constant"></w4u-interval>
+ <w4u-stop name="stop4" time="00:15.6"></w4u-stop> 
+ <w4u-interval name="int5" begin="00:18" end="1.0" mode="constant"></w4u-interval>
+ <!--w4u-stop name="stop5" time="00:16.1"></w4u-stop--> 
+ <w4u-interval name="int6" begin="00:19.8" end="1.0" mode="constant"></w4u-interval>
+
+</w4u-video>   
+	   
+	<hr/>   
+
+	
+   </div> <!-- end md-5 -->
+
+   <div class="col-md-5 col-sm-6">
+
+<w4u-visibility name="vis1" mode="opacity" default="hide">
+ <div class="alert alert-success" role="alert">
+  <i class="fa fa-question-circle fa-lg"></i>
+  Warum entstehen beim Aufstieg der Luft ab einer bestimmten Höhe Wolken und Niederschlag?
+</div>
+</w4u-visibility>
+
+<w4u-visibility name="vis2" mode="display" default="hide">
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle fa-lg"></i>
+  Druecken sie jeweils <i class="fa fa-play"></i> "Play" um die Animation fortzusetzen.
+</div>
+</w4u-visibility>
+
+<w4u-visibility name="vis3" mode="opacity" default="hide">
+ <div class="alert alert-success" role="alert">
+  <i class="fa fa-question-circle fa-lg"></i>
+  Warum reicht die Foehnmauer nur knapp ueber den Kamm?
+</div>
+</w4u-visibility>
+
+<w4u-visibility name="vis4" mode="opacity" default="hide">
+ <div class="alert alert-success" role="alert">
+  <i class="fa fa-question-circle fa-lg"></i>
+  Warum ist der Foehn so sprichwoertlich trocken und warm?
+</div>
+</w4u-visibility>
+
+<w4u-visibility name="vis5" mode="opacity" default="hide">
+ <div class="alert alert-success" role="alert">
+  <i class="fa fa-question-circle fa-lg"></i>
+  Wie kommt es zu der beobachtbaren Temperaturdifferenz zu beiden Seiten des Gebirges?
+</div>
+</w4u-visibility>
+
+<w4u-visibility name="vis6" mode="opacity" default="hide">
+ <div class="alert alert-primary" role="alert">
+  <i class="fa fa-info-circle fa-lg"></i>
+  Erfahren sie die Antworten auf den folgenden Seiten.
+</div>
+</w4u-visibility>
+
+   </div> <!-- end md-5 -->
+   <div class="col-md-1 col-sm-0 hidden-sm"></div>
+  </div> <!-- end row -->
+ </div> <!-- end container -->  
+  
+
+<c4u-connection source="int1-out" target="vis1-show"> </c4u-connection>
+<c4u-connection source="int2-out" target="vis2-show"> </c4u-connection>
+<c4u-connection source="int3-out" target="vis3-show"> </c4u-connection>
+<c4u-connection source="int4-out" target="vis4-show"> </c4u-connection>
+<c4u-connection source="int5-out" target="vis5-show"> </c4u-connection>
+<c4u-connection source="int6-out" target="vis6-show"> </c4u-connection>
+
+
+</c4u-circuitry>
+
+
