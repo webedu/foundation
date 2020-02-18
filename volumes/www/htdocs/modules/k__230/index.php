@@ -6,22 +6,19 @@
  <head>
   <meta charset="utf-8">
   <title>Adiabatische Prozesse</title>
-  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/webedu/decoration@master/icons/favicon.ico" >
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/bootstrap/bootstrap.min.css" type="text/css" w4u-type="global"> 
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global">
+  <link rel="shortcut icon" type="image/x-icon" href="../../common/icons/favicon.ico" >
+  <link rel="stylesheet" href="../../common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
+  <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global"-->
+  <link href="../../common/vendor/fonts/awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global">
   <link rel="stylesheet" type="text/css" href="../../common/css/main.css" media="screen" w4u-type="global"/>  
  </head>
  <body>
 
-<script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/vue/vue.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-loader.js"></script>
-
-<!--script src="https://cdn.jsdelivr.net/gh/webedu/npm@master/packages/c4u-main/dist/c4u-main.min.js" type="text/javascript"></script-->
-<!--script src="https://cdn.jsdelivr.net/gh/webedu/npm@master/packages/w4u-main/dist/w4u-main.min.js" type="text/javascript"></script-->
+<script src="../../common/vendor/vue/vue.min.js" type="text/javascript"></script>
+<script src="../../common/vendor/vue/webcomponents-loader.js"></script>
 <script src="../../common/js/w4u/c4u-main.min.js"></script>
 <script src="../../common/js/w4u/w4u-main.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../common/vendor/jquery/jquery.min.js"></script>
 
  <div class="container-fluid">
 <p style="font-size:1px;">&nbsp;</p>
