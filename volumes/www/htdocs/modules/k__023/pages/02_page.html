@@ -1,7 +1,7 @@
  <div class="container-fluid">
   <div class="row" style="margin: 8px;">
-   <div class="col-md-1 "></div>
-   <div class="col-md-5"> 
+   <div class="col-md-1 col-sm-0 hidden-sm"></div>
+   <div class="col-md-5 col-sm-6"> 
     <h2>Scheinbare Sonnenbahnen der Nordhalbkugel</h2>
     <p>Im Idealfall einer ebenen Fläche ohne Horizonteinschränkungen sieht der Beobachter auf der Erde
 	   die Bahn der Sonne als einen von Horizont zu Horizont gespannten großen Kreisbogen.
@@ -10,11 +10,11 @@
 	<hr/>   
 
 	<div class="row">
-	  <div class="col-sm-1"></div>
-  <div class="col-sm-4">
+	  <div class="col-lg-1 col-md-0 hidden-md"></div>
+  <div class="col-lg-4 col-md-6" style="max-width:48%;">
   
 
-     <div class="card" style="width:180px;">
+     <div class="card" style="min-width:160px;">
        <label for="breite" style="position: absolute; right:10%" ><b>geogr. Breite</b></label>
        <div class="card-body">  
          <label for="breite" style="position: absolute; top:12%; right: 25%">90° (Nordpol)</label>
@@ -24,9 +24,9 @@
       </div>	 
     </div>	
  </div>	
-  <div class="col-sm-4">	
+  <div class="col-lg-4 col-md-6" style="max-width:48%;">	
 	
-     <div class="card" style="width:180px;">
+     <div class="card" style="min-width:160px;">
        <label for="breite" style="position: absolute; left:10%" ><b>Jahreszeit</b></label>
        <div class="card-body">  
          <label for="breite" style="position: absolute; top:12%; left: 25%">Sommersolstitium</label>
@@ -48,14 +48,14 @@
 	
    </div> <!-- end md-5 -->
 
-   <div class="col-md-5">
+   <div class="col-md-5 col-sm-6">
      <p>Neben den Tageshöchständen der Sonne lässt sich auch das Verhältnis von Tag und Nacht beobachten.
 	    Wie verschieben sich im Laufe des Jahres Aufgangs- und Untergangspunkt der Sonne am Horizont?
   	 </p>
      <svg id="solar2" style="width: 400px; height: 400px; display: block; margin: auto;"></svg>
 	 <p></p>
    </div> <!-- end md-5 -->
-   <div class="col-md-1 "></div>
+   <div class="col-md-1 col-sm-0 hidden-sm"></div>
   </div> <!-- end row -->
  </div> <!-- end container -->  
   
@@ -71,7 +71,7 @@
 }
 </style>
 
- <script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/snapsvg/snap.svg-min.js" type="text/javascript"></script>
+ <script src="../../common/vendor/snapsvg/snap.svg-min.js" type="text/javascript"></script>
  <script src="./pages/sun.js" type="text/javascript"></script>
  <script src="./pages/02.js" type="text/javascript"></script>
 

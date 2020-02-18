@@ -4,7 +4,10 @@
 
 <html>
  <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" --> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- base href="http://www.webgeo.de" -->
   <title>Adiabatische Prozesse</title>
   <link rel="shortcut icon" type="image/x-icon" href="../../common/icons/favicon.ico" >
   <link rel="stylesheet" href="../../common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
@@ -15,10 +18,13 @@
  <body>
 
 <script src="../../common/vendor/vue/vue.min.js" type="text/javascript"></script>
-<script src="../../common/vendor/vue/webcomponents-loader.js"></script>
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-loader.js"></script-->
 <script src="../../common/js/w4u/c4u-main.min.js"></script>
 <script src="../../common/js/w4u/w4u-main.min.js"></script>
+
 <script src="../../common/vendor/jquery/jquery.min.js"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
+
 
  <div class="container-fluid">
 <p style="font-size:1px;">&nbsp;</p>
@@ -36,16 +42,6 @@
         <img style="margin-bottom:10px;" class="float-left" id="forward" src="/common/img/forward.png">    
       </div>
     </div>
-
-
-  <div class="row" style="margin: 8px;">
-   <div class="col-md-1"></div>
-    <div class="col-md-10"> 
-	
-  </div>
-  <div class="col-md-1"></div> 
- </div> 
-</div>
 
    <div id="pages">
     <?php includePages($pages); ?>
@@ -66,7 +62,7 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/webedu/foundation@master/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="../../common/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
 
 <script src="../../common/js/pages.js"></script>
 <?php javascriptPages($pages); ?>
