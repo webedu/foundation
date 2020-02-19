@@ -8,7 +8,7 @@
   <!-- meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" --> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- base href="http://www.webgeo.de" -->
-  <title>How to implement new modules</title>
+  <title>How to use webEDU components</title>
   <link rel="shortcut icon" type="image/x-icon" href="../../common/icons/favicon.ico" >
   <link rel="stylesheet" href="../../common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
   <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global"-->
@@ -33,7 +33,7 @@
         <img style="margin-bottom:10px; display:none" class="float-right" id="backward" src="/common/img/backward.png"> 
       </div>
        <div class="col-md-4 col-sm-5 menu">
-       <h2>How to implement new modules</h2>
+       <h2>How to use webEDU components</h2>
        </div>
       <div class="col-md-6 col-sm-6">
         <img style="margin-bottom:10px;" class="float-right" src="/common/img/webgeo_header.gif">
@@ -62,9 +62,8 @@
 
 </div>
 
-<script src="../../common/vendor/bootstrap/popper.min.js" type="text/javascript"></script>
-<script src="../../common/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
 
+<script src="../../common/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
 <script src="../../common/js/pages.js"></script>
 <?php javascriptPages($pages); ?>
 </body>
