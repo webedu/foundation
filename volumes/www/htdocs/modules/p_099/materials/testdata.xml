@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chartdata>
+	<metadata type="barChart" label="Bar Chart Example" spacingRatio="0.0" rescaleToFit="true" scale="1">
+	</metadata>
+	<data>
+		<class label="1st Class" id="1" color="0xFF0000" labelText="Text">100</class>
+		<class label="2nd Class" id="2" color="0x00FF00">150</class>
+		<class label="3rd Class" id="3" color="0x0000FF">75</class>
+		<class label="4th Class" id="4" color="0xFF0000">88</class>
+		<class label="5th Class" id="5" color="0x00FF00">20</class>
+		<class label="6th Class" id="6" color="0x0000FF">140</class>
+		<class label="7th Class" id="7" color="0xFF0000">75</class>
+	</data>
+</chartdata>

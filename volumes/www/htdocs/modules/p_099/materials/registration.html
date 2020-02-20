@@ -1,0 +1,176 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<!--
+		*********************
+		** WebKit Freiburg **
+		*********************
+		
+		This template registration page, the related PHP-scripts as well as CSS-styles were contributed to the WebKit Freiburg by Dr. Michael Rudner
+		Created 2009-10-16 by Dr. Michael Rudner
+		Modified by Michael Wild 2009-10-21
+		
+	-->
+	
+	<title>Registrierung f&uuml;r MultiStaR</title>
+	
+	<link href="../css/webkit_like_html.css" rel="stylesheet" type="text/css" title="stylesheet1">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	
+</head>
+
+<body>
+	
+	<div id="content">
+	
+	<!--
+		
+		**************************
+		** Kopf im WebKit-Style **
+		**************************
+		
+	-->
+	
+	<table width="800" background="img/titel_bg.png" height="73" cellpadding="0">
+		<tr>
+			<td width="150"><img src="img/uni_logo70.png"/></td>
+			
+			<!--
+				
+				***********
+				** Titel **
+				***********
+				
+			-->
+			
+			<td width="500" align="center">
+				<h2>Registrierung</h2>
+			</td>
+			
+			
+			<td valign="top" td width="150">
+				<!--Ihr Logo-->
+				<img src="logo_dummy.jpg"/></td>
+		</tr>
+	</table>
+	<table width="800" background="img/balken.png" cellpadding="0" height="25">
+		<tr><td>&nbsp;</td></tr>
+	</table>
+	
+	<!--
+		
+		*****************************************
+		** Eigentliche Inhalte im WebKit-Style **
+		*****************************************
+		
+	-->
+	
+	<table width="800" cellspacing="20">
+	
+		<tr>
+			<td ><img src="img/punkt.png" width="370" height="1"/></td>
+			<td><img src="img/punkt.png" width="370" height="1"/></td>
+		</tr>
+		<tr>
+			
+			<!--Linke Spalte-->
+			<td width="370" valign="top">
+				<p><b>Lieber Lerner und liebe Lernerin,</b></p>
+				<p>zur Nutzung des Lernmoduls ist eine Registrierung notwendig. Wir möchten erfahren, wie unser Produkt genutzt wird. Diese Information wird bei der Registrierung einmalig erhoben.</p>
+				<p><b>Ihren Nutzernamen k&ouml;nnen sie frei w&auml;hlen</b> - er braucht keinen Bezug zu Ihrer Identität zu haben. Er sollte 8 Zeichen lang sein und darf nicht länger als 12 Zeichen sein. Das Kennwort können Sie ebenfalls frei wählen. Es darf maximal 12 Zeichen haben.</p>
+			</td>
+			
+			<!--Rechte Spalte-->
+			<td width="370" valign="top">
+				<br/>
+				<p><b><i>Hinweis zum Datenschutz</i></b></p>
+				<p>Der Aufruf der E-Learning-Module wird protokolliert. Dabei werden Ihr Nutzername, die aufgerufene Modulseite und der Zeitpunkt des Aufrufs erfasst.</p>
+				<p>Wir wollen damit nachvollziehen, welche Seiten wie häufig genutzt werden.</p>
+				<p>Aus Datenschutzgründen empfehlen wir Ihnen daher, einen Nutzernamen zu wählen, der keine Rückschlüsse auf Ihre Identität zulässt.</p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">Tragen Sie bitte die notwendigen Informationen in die Felder ein. Alle Felder müssen ausgefüllt werden:</td>
+		</tr>
+		
+		<tr>
+			<td>
+				
+				<!--
+					
+					**************
+					** Formular **
+					**************
+					
+				-->
+				
+				<form action="../php/registration.php" method="POST">
+					<table border=0>
+						
+						<!-- Die Felder 'username', 'pwd' und 'pwd_check' sind obligatorisch (über das Attribut 'name') -->
+						<tr>
+							<td width=200>Nutzername </td>
+							<td width=100><input type="text" name="username" maxlength="12"/></td>
+						</tr>
+						<tr>
+							<td>Kennwort</td>
+							<td><input type="password" name="pwd" maxlength="12"/></td>
+						</tr>
+						<tr>
+							<td>Bestätigung des Kennworts </td>
+							<td><input type="password" name="pwd_check" maxlength="12"/></td>
+						</tr>
+						
+						<!-- Optionale Felder (Datenbank UND registration.php müssen angepasst werden) -->
+						<!-- Beispiel von Dr. Michael Rudner -->
+						<!--<tr>
+							<td>Hochschule</td>
+							<td><input type="text" name="hochschule" maxlength="50" /></td>
+						</tr>
+						<tr>
+							<td>Fachbereich</td>
+							<td><select name="fachbereich">
+								<option value="0">W&auml;hlen Sie bitte aus!</option>
+								<option value="1">Biologie</option>
+								<option value="2">&Ouml;kologie</option>
+								<option value="3">Geo&ouml;kologie</option>
+								<option value="4">Landschafts&ouml;kologie</option>
+								<option value="5">Forstwissenschaften</option>
+								<option value="6">Agrarwissenschaften</option>
+								<option value="7">Geographie</option>
+								<option value="8">Landespflege</option>
+								<option value="9">Andere</option>
+							</select></td>
+						</tr>-->
+						
+						<!-- Reset oder Absenden -->
+						<tr>
+							<td><input type="hidden" name="tried" value="yes" /></td>
+							<td><input type="submit" value="Registrieren" /></td>
+						</tr>
+							
+					</table>
+				</form>
+			</td>
+			
+		</tr>
+		
+		<tr>
+			<td>
+				<p><a href="../index.html">Zum Login</a>
+			</td>
+		</tr>
+		
+		<!-- Copyright -->
+		<tr class="bottomline">
+			<td colspan="2">Powered by <a href="http://portal.uni-freiburg.de/rz/elearning/werkzeuge/autorentools/webkit-freiburg/webkit-freiburg-main">WebKit Freiburg</a></td>
+		</tr>
+			
+	</table>
+	
+	</div>
+	
+</body>
+
+</html>

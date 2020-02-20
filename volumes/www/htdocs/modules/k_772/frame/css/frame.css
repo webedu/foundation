@@ -1,0 +1,64 @@
+body * {
+	margin:0;
+	padding:0;
+	font-family:Arial,Helvetica,Sans-Serif;
+	font-size: 13pt;
+}
+body {
+	background:#D5E6FF;
+}
+div#main_wrapper {
+	padding:0;
+	margin: 5px auto 5px auto;
+	width:952px;
+	border:2px #D5E6FF groove;
+	background:white;
+}
+table#structure_table * {
+	background:white;
+}
+table#structure_table #logo_and_menu * {
+	background:#003399;
+}
+table#structure_table #logo_and_menu a {
+	
+}
+table#structure_table #logo_and_menu #logo{
+}
+table#structure_table #logo_and_menu #menu{
+	text-align:right;
+}
+table#structure_table #title_bar {
+	background:D5E6FF;
+	color:grey;
+	padding:1px;
+}
+table#structure_table #title_bar #topic {
+	font-size:10pt;
+}
+table#structure_table #title_bar #topic  a{
+	font-size:10pt;
+	color:#003399;
+	text-decoration:none;
+}
+table#structure_table #title_bar #title {
+	font-size:10pt;
+	text-align:right;
+}
+table#structure_table #title_bar #title  a{
+	font-size:10pt;
+	color:#003399;
+	text-decoration:none;
+}
+table#structure_table #webgeo_content {
+}
+table#structure_table #bottom_metadata {
+	height:10px;
+	text-align:center;
+	padding-bottom:2px;
+}
+table#structure_table #bottom_metadata a {
+	color:#0099CC;
+	font-size:10pt;
+	font-weight:bold;
+}

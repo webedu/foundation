@@ -1,0 +1,5 @@
+﻿In this directory are PHP functions created during the
+
+	WEBGEO2Typo3 Migration 1 - Jul 2009.
+
+Older PHP functions (resp. files) are in the root directory.

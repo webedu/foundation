@@ -1,0 +1,35 @@
+Das WebKit steht nur mit interfacetowebkit.php in Kontakt, diese Datei ist in der WebKit_mother definiert (Ebene SETTINGS im Balken).
+
+Beim Kontakten wird der connectiontype mitgeteilt, von dem anhängt, (1) ob eine Antwort zu erwarten ist, und (2) wie die Datei überhaupt mit der Information umgehen soll. NUR DA entescheidet sich dann auch, welche weiteren Dateien hinzugezogen (included) werden sollen.
+
+Die DB-Connection-Details stehen auch nur über die PHP-Dateien zur Verfügung, im WebKit gibt es darüber keine Informationen.
+
+Das Übertragungsformat zwischen WebKit und PHP ist immer in XML sein.
+
+In PHP werden die XML-Daten in einen mehrdimensionales Array geschrieben, im WebKit ist die Entsprechung ein Objekt.
+
+WICHTIG: Die Tiefe der Struktur sollte in der momentanen Ausführung nicht weiter als bis zu Textknoten in Kindelementen dieser beiden Dimensionen gehen, es gibt aber ein paar Ausnahmen.
+
+Die verschiedenen verwendeten connectiontypes und wie die zugehörige Datenstruktur ist (Variablenbenennungen) werden in der separaten Datei connectiontypes.txt aufgeführt.
+
+
+*****************
+
+
+
+Modulseiten:
+
+Die Modulseiten können mittels globale Funktionen (die in der Mutter liegen) Verschiedenes ausführen:
+
+- mit der cmi_log-Funktion etc. (vgl. Bsp. in den Templates) können Daten gespeichert werden
+- verwendet man getStatus, dann können die Statusinformationen aus der Mutter geladen werden
+- diese lädt sie ganz zu Beginn aus der DB
+- mit enableSection(sectionNumber,on/off), sectionNumber von 1 an, können sections aktiviert und deaktiviert werden, alse z.B. erst mit dem Drücken eines Btn wird die nächste freigeschaltet
+- mit markCurrentPage() wird die momentane Seite als Startseite für die nächste Sitzung festgelegt, dieser Wert wird aber ständig überschrieben (mit jedem mal markCurrentSection()), amit das wirksam wird muss natürlich autoMarksCurrentSection aus
+
+Beachte neue Möglichkeiten in den Tags (structure.xml):
+
+- assesscontrol
+- userlogging
+- navigation (sectionsRestricted: bis auf die erste Section müssen aller zuerst freigeschaltet werden , autoMarkCurrentSection)
+- autoLabelNumbering

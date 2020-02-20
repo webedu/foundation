@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--**********************************<webkitmanifest>-Element**********************************-->
+  <xs:element name="webkitmanifest">
+    <xs:complexType>
+      <!--**********************************Einleitende Worte - begin**********************************-->
+      <xs:annotation>
+        <xs:documentation xml:lang="de">Das &lt;webkitmanifest&gt; ist in XML (Extensible Markup Language) verfasst. Siehe auch: http://de.wikipedia.org/wiki/Extensible_Markup_Language#Logischer_Aufbau. Sie können einen freien Editor wie das XML Notepad von Microsoft zum komfortablen Editieren oder einen einfachen Texteditor wie Notepad++ oder Windows Notepad benutzen. ACHTEN SIE AUF DIE ZEICHENKODIERUNG UTF-8!
+</xs:documentation>
+        <xs:documentation xml:lang="de">In der Datei webkitmanifest.xsd wird das verwendete XML-Schema definiert. Außerdem ist dort die Dokumentation der einzelnen Elemente abgelegt. Falls Sie einen Editor wie das XML Notepad 2007 benutzen, dann können Sie die Hilfe beim ansehen, wenn Sie mit der Maus über das entsprechende Element fahren.
+</xs:documentation>
+        <xs:documentation xml:lang="de">Hier wird folgendes definiert:
+1. Die Metadaten (METADATA, z.B. der Modultitel und einige Einstellungen zum Verhalten des Lernmoduls);
+2. Der logische Aufbau des Moduls (ORGANIZATION, welche Seiten in welcher Reihenfolge angeboten werden, also die Sequenzierung).</xs:documentation>
+      </xs:annotation>
+      <!--**********************************Einleitende Worte - end**********************************-->
+      <xs:sequence>
+        <!--**********************************<metadata>-Element**********************************-->
+        <xs:element name="metadata">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation xml:lang="de">METADATA, z.B. der Modultitel und einige Einstellungen zum Verhalten des Lernmoduls</xs:documentation>
+            </xs:annotation>
+            <!--<xs:sequence> der Elemente von <metadata>-->
+            <xs:sequence>
+              <!--schemaVersion-->
+              <xs:element name="schemaVersion" default="3.1">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Die schemaVersion des webkitmanifest muss mit der Versions des WebKit-Rahmens kompatibel sein. Werden die Dateien als Paket ausgliefert, so sind die Dateien kompatibel, ansonsten (z.B. bei Updates) fragen Sie bitte bei den Entwicklern nach.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="3.0" />
+                    <xs:enumeration value="3.1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--moduletitle-->
+              <xs:element name="moduletitle" type="xs:string" default="Modultitel">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Modultitel (erscheint in der Navigationsleiste und im WebKit-Impressum)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--author-->
+              <xs:element name="author" type="xs:string" default="Antonia Mustermann">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Autor (erscheint in der Navigationsleiste und im WebKit-Impressum)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--institution-->
+              <xs:element name="institution" type="xs:string" default="Einrichtung">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Einrichtung (erscheint in der Navigationsleiste und im WebKit-Impressum)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--logo-->
+              <xs:element name="logo" type="xs:string" default="materials/logo_dummy.swf">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Logo (erscheint in der Navigationsleiste rechts oben).
+JPG, GIF, SWF möglich.
+Es ist möglich, die gesamte Fläche auszufüllen und die Hintergrundfarbe zu überdecken.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--logo_small-->
+              <xs:element name="logo_small" type="xs:string" default="materials/logo_dummy.swf">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Logo (erscheint im WebKit-Impressum). JPG, GIF, SWF möglich.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--mainColor-->
+              <xs:element name="mainColor" type="xs:string" default="0xD5E6FF">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Farbe der Vorlagenelemente.
+
+Rahmen, Buttons etc. auf den Einzelseiten verwenden dies als Farbe.
+
+[RGB-Farbe in Hexadezimaldarstellung, beginnen mit "0x" (z.B. 0x666666)]</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--barColor-->
+              <xs:element name="barColor" type="xs:string" default="0xF0F0F0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Farbe der Navigationsleiste.
+
+Große Logos können diese Farbe ggf. komplett überdecken.
+
+[RGB-Farbe in Hexadezimaldarstellung, beginnen mit "0x" (z.B. 0x666666)]</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--barTextColor-->
+              <xs:element name="barTextColor" type="xs:string" default="0x000000">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Farbe des Textes in  der Navigationsleiste (Modultitel etc.).
+
+[RGB-Farbe in Hexadezimaldarstellung, beginnen mit "0x" (z.B. 0x666666)]</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--menuTextColor-->
+              <xs:element name="menuTextColor" type="xs:string" default="0x555555">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Farbe des Textes in den Navigationsmenüs.
+
+[RGB-Farbe in Hexadezimaldarstellung, beginnen mit "0x" (z.B. 0x666666)]</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--barText-->
+              <xs:element name="barText">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Text der Navigationsleiste:
+
+Drei Zeilen unterschiedlicher Schriftgröße werden über die Attribute dieses Elements eingestellt.
+
+Die Variablen _title, author, _insitution, _section, _page werden automatisch erstetzt.
+
+Formatierung kann wie in HTML vorgenommen werden (z.B. &lt;b&gt;blablabla&lt;/b&gt; für Fettschreibung, allerdings müssen die spitzen Klammmern (und Umlaute) maskiert (URL kodiert) werden: "&lt;" wird zu "&amp;lt;", "&gt;" zu "&amp;gt;".</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="title" type="xs:string" default="&amp;lt;b&amp;gt;_title&amp;lt;/b&amp;gt;">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Die Variablen _title, author, _insitution, _section, _page werden automatisch erstetzt.
+
+Formatierung kann wie in HTML vorgenommen werden (z.B. &lt;b&gt;blablabla&lt;/b&gt; für Fettschreibung, allerdings müssen die spitzen Klammmern (und Umlaute) maskiert (URL kodiert) werden: "&lt;" wird zu "&amp;lt;", "&gt;" zu "&amp;gt;".
+
+Beispiele:
+_title
+&amp;lt;b&amp;gt;_title&amp;lt;/b&amp;gt;</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="subTitle" type="xs:string" default="&amp;lt;b&amp;gt;_section&amp;lt;/b&amp;gt;">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Die Variablen _title, author, _insitution, _section, _page werden automatisch erstetzt.
+
+Formatierung kann wie in HTML vorgenommen werden (z.B. &lt;b&gt;blablabla&lt;/b&gt; für Fettschreibung, allerdings müssen die spitzen Klammmern (und Umlaute) maskiert (URL kodiert) werden: "&lt;" wird zu "&amp;lt;", "&gt;" zu "&amp;gt;".
+
+Beispiele:
+Erstellt von _author, _institution
+&amp;lt;b&amp;gt;_section&amp;lt;/b&amp;gt;</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="subSubTitle" type="xs:string" default="_page">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Die Variablen _title, author, _insitution, _section, _page werden automatisch erstetzt.
+
+Formatierung kann wie in HTML vorgenommen werden (z.B. &lt;b&gt;blablabla&lt;/b&gt; für Fettschreibung, allerdings müssen die spitzen Klammmern (und Umlaute) maskiert (URL kodiert) werden: "&lt;" wird zu "&amp;lt;", "&gt;" zu "&amp;gt;".
+
+Beispiele:
+_page
+_author, _institution</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <!--autoLabelNumbering-->
+              <xs:element name="autoLabelNumbering" default="false">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Wird eine automatische Nummer (für jede Section von eins beginnend) für die Seitennamen in der Navigationsleiste (Menüs und Titel) vorgenommen?</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="true" />
+                    <xs:enumeration value="false" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--email-->
+              <xs:element name="email" default="servicestelle@e-learning.uni-freiburg.de" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Kontaktaddresse zum Lernmodul</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--url-->
+              <xs:element name="url" default="http://portal.uni-freiburg.de/rz/elearning/werkzeuge/autorentools/webkit-freiburg" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Internetaddresse des Lernmoduls selbst oder Informationen über das Modul, die Autoren oder die Einrichtung</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--license_url-->
+              <xs:element name="license_url" default="licence_information.html" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Internetaddresse mit Lizenzinformationen zum Einsatz des Lernmoduls.
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Z.B. Creative Commons (siehe creativecommon.org, dort kann man sich passende Lizenzbedingungen auswählen, automatisch den zugehörigen HTML-Code ausgeben lassen und dann auf einer Webseite in HTML einbinden.
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Die eigenen Lizenzbedingungen können zum Beispiel in die HTML-Seite im Modul-Verzeichnis eingefügt werden (licence_information.html; diese Datei kann mit einem einfachen Texteditor verändert werden.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--licence_logo-->
+              <xs:element name="licence_logo" default="blank.gif" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Momentan noch funktionslos. 81x38px</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--wordreference-->
+              <xs:element name="wordreference">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">***Glossar***
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Das Glossar kann auf zwei Weisen aufgerufen werden:
+1. Button in der Navigationsleiste (dann der Link unter "uri");
+2. Glossarlink der Vorlagensammlung dann über "form" (ACHTUNG: URL-encoded).</xs:documentation>
+                  <xs:documentation xml:lang="de">Beispiel: mit form="http://de.wikipedia.org/wiki/" führt der Suchbegriff "Uni_Freiburg" zu "http://de.wikipedia.org/wiki/Uni_Freiburg", also direkt zum entsprechenden Artikel.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="label" type="xs:string" default="Wikipedia">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Das Feld "label" hat bisher noch keine Bedeutung.
+</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="uri" type="xs:string" default="de.wikipedia.org">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Wird von der Navigationsleiste aus aufgerufen</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="form" type="xs:string" default="http://de.wikipedia.org/wiki/">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Glossarlinks sind mit einem Suchbegriff verbunden. Der Suchbegriff wird einfach an "form" hintangehängt. Sie können so z.B. ein Wiki nutzen (das Rechenzentrum der Uni Freiburg unterstützt Universitätseinrichtungen gerne beim Einrichten eines Wiki).
+</xs:documentation>
+                      <xs:documentation xml:lang="de">Die Sitemap ist eine SWF-Datei, die mit WebKit_template.fla mit dem Vorlagenobjekt sitemapObj erzeugt wurde.
+</xs:documentation>
+                      <xs:documentation xml:lang="de">Die Sitemap wird am Besten im Ordner ./materials/ (relativ zum Modul-Verzeichnis) abgelegt.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <!--sitemap-->
+              <xs:element name="sitemap" default="materials/sitemap.swf" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Relativer Pfad zur Sitemap.
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Die Sitemap ist eine SWF-Datei, die mit WebKit_template.fla mit dem Vorlagenobjekt sitemapObj erzeugt wurde.
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Die Sitemap wird am Besten im Ordner ./materials/ (relativ zum Modul-Verzeichnis) abgelegt.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--navigation-->
+              <xs:element name="navigation">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Einstellungen des Navigationsverhaltens
+</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <!--continous-->
+                  <xs:attribute name="continuous" default="true">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Ist die Navigation zwischen den Sections durchgängig, oder wird nach jeder Section der "Weiter"-Knopf gesperrt, sodass die Navigation über Menüs oder interne Links vorgenommen werden muss (true, false)?</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <!--menus-->
+                  <xs:attribute name="menus" default="true">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Werden ausklappbare Menüs verwendet, oder ist einfache eine inaktive Leiste mit den Überschriften der Sections zu sehen (true, false)?</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <!--menusvisible-->
+                  <xs:attribute name="menusvisible" default="true">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Ist die Menüleiste überhaupt sichtbar oder nicht (true, false)?</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <!--sectionsrestricted-->
+                  <xs:attribute name="sectionsrestricted" default="false">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Ist die Navigation zwischen den Sections durchgängig, oder sind die Sections (bis auf die erste zunächst gesperrt (true, false)? Im zweiten Fall sind nach jeder Section der "Weiter"-Knopf und das Menü zunächst gesperrt und müssen erst durch eine User-Aktion freigeschaltet werden (z.B. das Bearbeiten oder Lösen einer Aufgabe).</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <!--autoCurrentPageMarker-->
+                  <xs:attribute name="autoCurrentPageMarker" default="true">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Soll im Fall einer Anbindung an eine DB oder ein LMS die momentane Seite gespeichert und als Startseite für weitere Attempts verwendet werden (true, false)?</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <!--skipMenusAndUseProgressBar-->
+                  <xs:attribute name="skipMenusAndUseProgressBar" default="false">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Soll statt der Menüleiste eine Fortschrittsleiste verwendet werden? Fortschrittsleiste: WebKit_progressBar.swf</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <!--accesscontrol-->
+              <xs:element name="accesscontrol">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Zugriffsgeschützte Module</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="authentication" default="false">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Soll das Lernmodul zugriffsgeschützt werden (true, false)? Wenn ja, dann muss der User beim Start seine Zugangsdaten eingeben und kann das modul nur bei Erfolg starten. Dazu ist eine eigene MySQL-DB und eine Anpassung der PHP-Seiten nötig.</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="registration" default="false">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Kann vom Login-Formular eine Registrierungsseite aufgerufen werden, auf der sich der User selbst registrieren kann (true, false)?</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="registrationpage" default="materials/registration.html" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Wenn registration="true", dann ist das die Seite, auf der die Registrierung vorgenommen wird. Diese Seite wird vom Login-Formular aus verlinkt.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <!--userlogging-->
+              <xs:element name="userlogging">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">User-Logging</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="keepstatus" default="true">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Ist die Statuserhaltung aktiviert (true, false)? Sobald Statusinformationen (aus der laufenden Session, vom LMS oder von einer eigenen DB) vorhanden sind, können viele Elemente ihren Zustand beimn Aufrufen einer Seite auf die lezte Einstellung setzen.</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="usedb" default="false">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Kann vom Login-Formular eine Registrierungsseite aufgerufen werden, auf der sich der User selbst registrieren kann (true, false)?
+</xs:documentation>
+                        <xs:documentation xml:lang="de">Die Datenbank muss gesondert eingerichtet werden. Wenden Sie sich an die Servicestelle E-Learning um zu erfahren wie Sie Ihre Datenbank strukturieren müssen.
+</xs:documentation>
+                        <xs:documentation xml:lang="de">Das Rechenzentrum der Universität Freiburg bietet für Universitseinrichtungen einen zentralen Datenbankserver an, den Sie online beantreagen können.</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="httpmethod" default="POST">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Wenn registration="true", dann ist das die Seite, auf der die Registrierung vorgenommen wird. Diese Seite wird vom Login-Formular aus verlinkt.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Nur die Einstellung "POST" möglich</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="POST" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <!--phpinterface-->
+              <xs:element name="phpinterface" type="xs:string" default="php/interfacetowebkit.php">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">PHP-Datei, die alle anderen PHP-Dateien einbindet und den Datenaustausch zwischen Server/DB und dem WebKit-Modul via XMl vornimmt.
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Dieses Feld benötigen Sie nur, wenn Sie das WebKit-Modul an eine eigene Datenbank anbinden; ansonsten ist dieses Feld egal.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--beSCO-->
+              <xs:element name="beSCO" default="false">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Ist das Modul ein SCO, das in einem SCORM Content Package verwendet werden kann (true, false)? Die Kommunikation mit dem LMS ist in diesem Fall aktiviert.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="true" />
+                    <xs:enumeration value="false" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--success_tracking-->
+              <xs:element name="success_tracking" default="page_success">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">*** Success Tracking ***
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Es gibt drei Modi des Success Tracking, also der Bestimmung des Erfolgs der Bearbeitung: manual, page_success, use_score. Es gibt die Zustände passed, failed und unknown.</xs:documentation>
+                  <xs:documentation xml:lang="de"> * manual: Der Zustand wird durch benutzerdefinierte Skripte auf den einzelnen Seiten gesteuert (im LMS mit Hilfe der Funktion SCORMSetValue("success_status", my_status), my_status is in {"passed","failed","unknown"}
+</xs:documentation>
+                  <xs:documentation xml:lang="de"> * page_success: Ein Modul zählt als bestanden ("passed"), sobald alle einzelnen Seiten bestanden wurden, ansonsten ist der Status "unknown". Einzelne Seiten werden entweder beim Besuchen automatisch als bestanden gewertet oder müssen manuell - z.B. nach dem bearbeiten einer Übung - auf bestanden gesetzt werden:
+
+&lt;menuitem ... init_page_success="true" ...&gt;:	Seite automatisch bestanden
+&lt;menuitem ... init_page_success="false" ...&gt;:	Seitenstatus ist zunächtst nicht bestanden und wird mit der globalen Funktion report_page_success_status(pageid,newval) manuell gesetzt (z.B. pageid="2.1" und newval=true
+</xs:documentation>
+                  <xs:documentation xml:lang="de"> * use_score: Zur Bestimmung des Modulstatus wird die Punktzahl des Moduls genutzt, die sich aus den Übungen im Test-Modus (mit test=true) berechnet. Die Punkte werden automatisch zusammengezählt. Die Gesamtpunktzahl (total_score) muss für SCOs im imsmanifest angegeben werden, ansonsten (im Stand-Alone-Modus) hier im webkitmanifest, ebenso der zu erreichende Anteil der Punkte scaled_passing_score.
+</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="manual" />
+                    <xs:enumeration value="page_success" />
+                    <xs:enumeration value="use_score" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--total_score-->
+              <xs:element name="total_score" type="xs:integer" default="20">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Gesamtpunktzahl. Muss entweder im webkitmanifest oder im imsmanifest angegeben werden. NUR NÖTIG FALLS: success_tracing=use_score.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!--scaled_passing_score-->
+              <xs:element name="scaled_passing_score" default="0.6">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Muss entweder im webkitmanifest oder im imsmanifest (falls beSCO=true) angegeben werden. NUR FALLS: success_tracing=use_score.
+</xs:documentation>
+                  <xs:documentation xml:lang="de">scaled_passing_score is in [-1,1]
+</xs:documentation>
+                  <xs:documentation xml:lang="de">Beispielrechnung: ((passing_score / total_score)*2 - 1) is in [-1,1] ; (16 Punkte / 20 Punkten)*2 - 1 = (4/5)*2-1 = 0.6 (~80% der Punkte ~16 Punkte)</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="-1.0"></xs:minInclusive>
+                    <xs:maxInclusive value="1.0"></xs:maxInclusive>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--webkitdevelopment-->
+              <xs:element name="webkitdevelopment">
+                <xs:annotation>
+                  <xs:documentation xml:lang="de">Developer Vars</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="debugging" default="false">
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="de">Gibt zusätzliche Ausgaben über serverseitige PHP-Skripts (nur für Entwickler).</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:token">
+                        <xs:enumeration value="true" />
+                        <xs:enumeration value="false" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!--**********************************<organization>-Element**********************************-->
+        <xs:element name="organization">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation xml:lang="de">Hier wird die Struktur des Lernmoduls definiert: das Modul besteht aus Sections (&lt;menu&gt;-Elemente), die wieder aus Einzel-Seiten (&lt;menuitem&gt;-Elemente) bestehen.
+</xs:documentation>
+              <xs:documentation xml:lang="de">Das &lt;organization&gt;-Element enthält nur &lt;menu&gt;-Elemente.</xs:documentation>
+            </xs:annotation>
+            <!--<xs:sequence> der <menu>-Elemente-->
+            <xs:sequence>
+              <!--<menu>-Element:-->
+              <xs:element name="menu" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:annotation>
+                    <xs:documentation xml:lang="de">&lt;menu&gt;-Elemente stehen für die Sections und damit für die einzelnen Menüüberschriften in der Navigationsleiste. &lt;menu&gt;-Elemente enthalten eine oder mehrere &lt;menuitem&gt;-Elemente, die den Einzelseiten entsprechen.</xs:documentation>
+                  </xs:annotation>
+                  <!--<xs:sequence> der <menuitem>-Elemente-->
+                  <xs:sequence>
+                    <!--<menuitem>-Element-->
+                    <xs:element name="menuitem" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="de">&lt;menuitem&gt;-Elemente stehen für Einzelseiten und sind immer Kinder von &lt;menu&gt;-Elementen. Sie haben keinen eigentlichen Inhalt, nur mehrere Eigenschaften.</xs:documentation>
+                        </xs:annotation>
+                        <!--id-->
+                        <xs:attribute name="id" default="1.1">
+                          <xs:simpleType>
+                            <xs:annotation>
+                              <xs:documentation xml:lang="de">Der eindeutige Bezeichner einer Seite nach dem Schema "[menu].[page]"; menu wird von 1 an für das ganze Lernmodul durchnummeriert, [page] von 1 an für jedes menu.</xs:documentation>
+                            </xs:annotation>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]*\.[0-9]*" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <!--name-->
+                        <xs:attribute name="name" default="Seitenname" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="de">Name der Seite (in Menüs und Titelleiste)</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <!--type-->
+                        <xs:attribute name="type" default="content">
+                          <xs:simpleType>
+                            <xs:annotation>
+                              <xs:documentation xml:lang="de">Ist es eine normale Inhaltsseite ("content"), eine Übungsseite ("exercise") oder eine Testseite ("test"). Hat nur Auswirkungen auf das Erscheinungsbild im Menü: bei Übungen und Tests erscheint ein Buchstabe neben dem Namen.</xs:documentation>
+                            </xs:annotation>
+                            <xs:restriction base="xs:token">
+                              <xs:enumeration value="content" />
+                              <xs:enumeration value="exercise"></xs:enumeration>
+                              <xs:enumeration value="test" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <!--init_page_success-->
+                        <xs:attribute name="init_page_success" default="true">
+                          <xs:simpleType>
+                            <xs:annotation>
+                              <xs:documentation xml:lang="de">"true" oder "false", siehe oben bei Success Tracking</xs:documentation>
+                            </xs:annotation>
+                            <xs:restriction base="xs:token">
+                              <xs:enumeration value="true" />
+                              <xs:enumeration value="false"></xs:enumeration>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <!--path-->
+                        <xs:attribute name="path" default="contents/seitenname.swf" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="de">Relativer Pfad zu der entsprechenden SWF-Datei (am Besten im Verzeichnis "./contents" im Stammverzeichnis des Moduls)</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <!--title-->
+                  <xs:attribute name="title" type="xs:string" default="Section1">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Name der Section (Text für die dynamischen Text in der Titelleiste)</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <!--label-->
+                  <xs:attribute name="label" type="xs:string" default="Section1">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="de">Name der Section (Text der Menüüberschrift)</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

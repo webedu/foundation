@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--************************MANIFEST begin************************-->
+<!--Das <webkitmanifest> ist in XML (Extensible Markup Language) verfasst.
+
+Siehe auch: http://de.wikipedia.org/wiki/Extensible_Markup_Language#Logischer_Aufbau.
+		
+Sie können einen freien Editor wie das XML Notepad von Microsoft zum komfortablen Editieren oder einen einfachen Texteditor wie Notepad++ oder Windows Notepad benutzen. ACHTEN SIE AUF DIE ZEICHENKODIERUNG UTF-8!
+		
+In der Datei webkitmanifest.xsd wird das verwendete XML-Schema definiert. Außerdem ist dort die Dokumentation der einzelnen Elemente abgelegt. Falls Sie einen Editor wie das XML Notepad 2007 benutzen, dann kö-->
+<webkitmanifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="webkitmanifest.xsd">
+  <!--************************METADATA begin************************-->
+  <metadata>
+    <!--******Version des verwendeten XML-Schemas******-->
+    <schemaVersion>3.1</schemaVersion>
+    <!--******Modoultitel, Autor und Einrichtung******-->
+    <moduletitle>Die CC-Wettermaschine der Tropen: Latente Labilität der Tropen</moduletitle>
+    <author>Peter Armbruster (WEBGEO|klima)</author>
+    <institution>Institut für Physische Geographie der Universität Freiburg</institution>
+    <!--******Logo Navigationsleiste******-->
+    <logo>materials/webkit_webgeo_logo.swf</logo>
+    <!--******Logo Impressum******-->
+    <logo_small>materials/webkit_webgeo_logo.swf</logo_small>
+    <!--******Farbe Vorlagenelemente******-->
+    <mainColor>0x7BA6D6</mainColor>
+    <!--******Farbe Navigationsleiste******-->
+    <barColor>0x7BA6D6</barColor>
+    <!--******Textfarbe Navigationsleiste******-->
+    <barTextColor>0xFFFFFF</barTextColor>
+    <!--******Textfarbe Menüelemente******-->
+    <menuTextColor>0x555555</menuTextColor>
+    <!--******Text Navigationsleiste******-->
+    <barText title="&lt;b&gt;_title&lt;/b&gt;" subTitle="&lt;b&gt;_section&lt;/b&gt;" subSubTitle="_page" />
+    <!--******Zusatz für Navigationsmenüs******-->
+    <autoLabelNumbering>false</autoLabelNumbering>
+    <!--******Kontaktaddressen, Informationen zum Modul, Lizenzinformationen******-->
+    <email>admin@webgeo.de</email>
+    <url>http://www.webgeo.de</url>
+    <license_url>http://www.webgeo.de/impressum</license_url>
+    <licence_logo>blank.gif</licence_logo>
+    <!--******Glossar******-->
+    <wordreference label="" uri="" form="" />
+    <!--******Sitemap******-->
+    <sitemap></sitemap>
+    <!--******Navigationsverhalten******-->
+    <navigation continuous="true" menus="true" menusvisible="true" sectionsrestricted="false" autoCurrentPageMarker="true" skipMenusAndUseProgressBar="false" />
+    <!--******Zugriffsgeschützte Module******-->
+    <accesscontrol authentication="false" registration="false" registrationpage="materials/registration.html" />
+    <!--******User-Logging******-->
+    <userlogging keepstatus="true" usedb="false" httpmethod="POST" />
+    <!--******Schnittstelle zu serverseitigen Skripts zur DB-Anbindung******-->
+    <phpinterface>php/interfacetowebkit.php</phpinterface>
+    <!--******SCORM-Einstellungen******-->
+    <beSCO>true</beSCO>
+    <!--******Success Tracking******-->
+    <success_tracking>use_score</success_tracking>
+    <total_score>20</total_score>
+    <scaled_passing_score>0.6</scaled_passing_score>
+    <!--Developer-Vars-->
+    <webkitdevelopment debugging="false" />
+  </metadata>
+  <!--************************METADATA end************************-->
+  <!--************************ORGANIZATION begin************************-->
+  <organization>
+    <menu label="Start" title="Start">
+      <menuitem id="1.1" name="Startseite" type="content" init_page_success="true" path="contents/k_773_01.swf" />
+    </menu>
+    <menu label="Inhalt" title="Inhalt">
+      <menuitem id="2.1" name="Latent labile Inversionsituation" type="content" init_page_success="true" path="contents/k_773_02.swf" />
+      <menuitem id="2.2" name="Latente Labilität der Randtropen" type="content" init_page_success="true" path="contents/k_773_03.swf" />
+      <menuitem id="2.3" name="Regionale Beispiele Latenter Labilität" type="content" init_page_success="true" path="contents/k_773_04.swf"></menuitem>
+    </menu>
+    <menu label="Ende" title="Ende">
+      <menuitem id="3.1" name="Schlussseite" type="content" init_page_success="true" path="contents/k_773_05.swf" />
+    </menu>
+  </organization>
+  <!--************************ORGANIZATION end************************-->
+</webkitmanifest>
+<!--************************MANIFEST end************************-->

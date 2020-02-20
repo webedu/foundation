@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM lom.xsd">
+  <general>
+    <identifier>
+      <catalog>WEBGEO ID</catalog>
+      <!--Z.B. URI, URN, DOI, ISBN, ISSN, WEBGEOSchema-->
+      <entry>k_772</entry>
+    </identifier>
+    <title>
+      <string language="de">Konvektion erzeugt Konvergenz</string>
+    </title>
+    <language>de</language>
+    <coverage>
+      <string language="de">Tropen</string>
+    </coverage>
+    <structure>
+      <!--fix-->
+      <source>LOMv1.0</source>
+      <value>linear</value>
+    </structure>
+    <aggregationLevel>
+      <!--fix-->
+      <source>LOMv1.0</source>
+      <value>2</value>
+    </aggregationLevel>
+  </general>
+  <lifeCycle>
+    <version>
+      <string language="de">1.0</string>
+      <!--mehrere langstrings mölich-->
+    </version>
+    <status>
+      <source>LOMv1.0</source>
+      <value>final</value>
+      <!--draft, final, revised, unavailable-->
+    </status>
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>author</value>
+      </role>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+FN:Peter Armbruster
+TITLE:
+END:VCARD</entity>
+    </contribute>
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>publisher</value>
+      </role>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+ORG:WEBGEO
+END:VCARD</entity>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+ORG:WEBGEO|klima
+END:VCARD</entity>
+    </contribute>
+  </lifeCycle>
+  <technical>
+    <format>text/html</format>
+    <format>application/x-shockwave-flash</format>
+    <format>WEBGEO_PHP_frame</format>
+    <installationRemarks>
+      <string language="de">Webbrowser (z.B. Windows Internet Explorer oder Mozilla Firefox) mit Flash-Plugin (ab Flash-Player 8). Die Lernmodule müssen nicht installiert werden, zur Nutzung ist lediglich ein  ein Browser mit Flash-Plugin nötig. Um Lernfortschritte speichern zu können muss das Lernmodul in ein Learning Management System (LMS) eingebettet sein.</string>
+    </installationRemarks>
+  </technical>
+  <educational>
+    <interactivityType>
+      <source>LOMv1.0</source>
+      <value>mixed</value>
+    </interactivityType>
+    <interactivityLevel>
+      <source>LOMv1.0</source>
+      <value>high</value>
+    </interactivityLevel>
+    <context>
+      <source>LOMv1.0</source>
+      <value>school</value>
+    </context>
+    <context>
+      <source>LOMv1.0</source>
+      <value>higher education</value>
+    </context>
+    <context>
+      <source>LOMv1.0</source>
+      <value>training</value>
+    </context>
+    <typicalAgeRange>
+      <string language="de">18-</string>
+    </typicalAgeRange>
+    <typicalLearningTime>
+      <duration>PT20M</duration>
+      <description>
+        <string language="de">Geschätzter Zeitbedarf für das Durcharbeiten</string>
+      </description>
+    </typicalLearningTime>
+  </educational>
+  <rights>
+    <cost>
+      <source>LOMv1.0</source>
+      <value>no</value>
+    </cost>
+    <copyrightAndOtherRestrictions>
+      <source>LOMv1.0</source>
+      <value>yes</value>
+      <description>
+        <string language="de">Die Nutzung des Lernmoduls zum Selbstlernen sowie der Einsatz in der Lehre sind kostenlos und ohne Einschränkungen erlaubt, solange dies über www.webgeo.de erfolgt und dies auch zu jedem Zeitpunkt ersichtlich ist. Die Inhalte selbst sind allerdings urheberrechtlich geschützt. Besuchen Sie www.webgeo.de für weitere Informationen.</string>
+      </description>
+    </copyrightAndOtherRestrictions>
+  </rights>
+  <relation>
+    <kind>
+      <source>LOMv1.0</source>
+      <value>ispartof</value>
+    </kind>
+    <resource>
+      <identifier>
+        <catalog>WEBGEO:CAT_0</catalog>
+        <entry>WEBGEO basics</entry>
+      </identifier>
+    </resource>
+  </relation>
+  <relation>
+    <kind>
+      <source>LOMv1.0</source>
+      <value>ispartof</value>
+    </kind>
+    <resource>
+      <identifier>
+        <catalog>WEBGEO:CAT_1</catalog>
+        <entry>Klimatologie</entry>
+      </identifier>
+    </resource>
+  </relation>
+  <relation>
+    <kind>
+      <source>LOMv1.0</source>
+      <value>ispartof</value>
+    </kind>
+    <resource>
+      <identifier>
+        <catalog>WEBGEO:CAT_2</catalog>
+        <entry>Klimatologie</entry>
+      </identifier>
+    </resource>
+  </relation>
+  <relation>
+    <kind>
+      <source>LOMv1.0</source>
+      <value>ispartof</value>
+    </kind>
+    <resource>
+      <identifier>
+        <catalog>WEBGEO:CAT_3</catalog>
+        <entry>Die CC-Wettermaschine der Tropen</entry>
+      </identifier>
+    </resource>
+  </relation>
+  <relation>
+    <resource>
+      <description>
+        <string language="de">Kombinierbar mit den Lernmodulen zu Wasser in der Luft</string>
+      </description>
+    </resource>
+  </relation>
+</lom>

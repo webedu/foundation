@@ -1,0 +1,6 @@
+Metadaten des WebKit-Moduls
+***************************
+
+Metadaten nach dem LOM-Schema (LOM=Learning Object Metadata) finden sich in der Datei wm_lom.xml.
+
+Die übrigen Dateien dienen dazu das XML-Schema zu definieren; sie dürfen nicht gelöscht werden, brauchen Sie jedoch auch nicht weiter zu interessieren.

@@ -1,0 +1,18 @@
+WebKit-Modul-Verzeichnis
+************************
+
+Dies ist das Stammverzeichnis eines Webkit-Moduls.
+
+Hier sind alle Dateien, die das Modul benötigt.
+
+Sie müssen in der Regel nur folgende Dateien und Verzeichnisse edititieren:
+- webkitmanifest.xml
+- ./contents/
+- ./materials/
+- Ggf. licence_information.html
+
+Das WebKit-Modul wird mit einer der folgenden Dateien gestartet:
+- index.html
+- popup.html
+
+Die übrigen Dateien müssen Sie normalerweise nicht beachtenn, Sie dürfen Sie allerdings auch nicht löschen!

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM lom.xsd">
+  <general>
+    <identifier>
+      <catalog>WEBGEO ID</catalog>
+      <!--Z.B. URI, URN, DOI, ISBN, ISSN, WEBGEOSchema-->
+      <entry>d_003</entry>
+    </identifier>
+    <title>
+      <string language="de">Virtuelle Exkursion Darß</string>
+    </title>
+    <language>de</language>
+    <description>
+      <string language="de">Hauptgegenstand der Virtuellen Exkursion auf dem Darß sind küstendynamische Prozesse. Bausteine sind v.a. Animationen zur postglazialen Entwicklung im Ostseeraum, zur Entstehung der Landschaft Fischland-Darß-Zingst sowie von Haken und Nehrungen</string>
+      <!--mehrere langstrings mölich-->
+    </description>
+    <keyword>
+      <string language="de">Ausgleichsküste</string>
+    </keyword>
+    <keyword>
+      <string language="de">Ostsee</string>
+    </keyword>
+    <keyword>
+      <string language="de">Darßentstehung</string>
+    </keyword>
+    <keyword>
+      <string language="de">Küstendynamik</string>
+    </keyword>
+    <keyword>
+      <string language="de">Haken</string>
+    </keyword>
+    <keyword>
+      <string language="de">Nehrungen</string>
+    </keyword>
+    <keyword>
+      <string language="de">Strandseebildung</string>
+    </keyword>
+    <keyword>
+      <string language="de">Abrasion</string>
+    </keyword>
+    <keyword>
+      <string language="de">Akkumulation</string>
+    </keyword>
+    <keyword>
+      <string language="de">Sedimenttransport</string>
+    </keyword>
+    <keyword>
+      <string language="de">Genese des Prerower Stroms</string>
+    </keyword>
+    <keyword>
+      <string language="de">Stadien der Dünenentwicklung</string>
+    </keyword>
+    <keyword>
+      <string language="de">Isostasie</string>
+    </keyword>
+    <keyword>
+      <string language="de">Litorinatransgression</string>
+    </keyword>
+    <keyword>
+      <string language="de">Virtuelle Exkursion</string>
+    </keyword>
+    <keyword>
+      <string language="de">Darß</string>
+    </keyword>
+    <coverage>
+      <string language="de">Darß</string>
+    </coverage>
+    <structure>
+      <!--fix-->
+      <source>LOMv1.0</source>
+      <value>linear</value>
+    </structure>
+    <aggregationLevel>
+      <!--fix-->
+      <source>LOMv1.0</source>
+      <value>2</value>
+    </aggregationLevel>
+  </general>
+  <lifeCycle>
+    <version>
+      <string language="de">1.0</string>
+      <!--mehrere langstrings mölich-->
+    </version>
+    <status>
+      <source>LOMv1.0</source>
+      <value>final</value>
+      <!--draft, final, revised, unavailable-->
+    </status>
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>author</value>
+      </role>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+FN:Detlef Thuerkow
+TITLE:Dr.
+END:VCARD</entity>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+FN:Matthias Merk
+TITLE:
+END:VCARD</entity>
+      <date>
+        <dateTime>2003-11-11</dateTime>
+        <description>
+          <string language="de">Fertigstellung</string>
+        </description>
+      </date>
+    </contribute>
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>unknown</value>
+      </role>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+FN:Detlef Thuerkow
+TITLE:Dr.
+END:VCARD</entity>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+FN:Matthias Merk
+TITLE:
+END:VCARD</entity>
+    </contribute>
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>publisher</value>
+      </role>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+ORG:WEBGEO
+END:VCARD</entity>
+      <entity>BEGIN:VCARD
+VERSION:3.0
+ORG:WEBGEO|fevil
+END:VCARD</entity>
+    </contribute>
+  </lifeCycle>
+  <technical>
+    <format>text/html</format>
+    <format>application/x-shockwave-flash</format>
+    <format>WebKit_Freiburg_3</format>
+    <installationRemarks>
+      <string language="de">Webbrowser (z.B. Windows Internet Explorer oder Mozilla Firefox) mit Flash-Plugin (ab Flash-Player 8). Die Lernmodule müssen nicht installiert werden, zur Nutzung ist lediglich ein  ein Browser mit Flash-Plugin nötig. Um Lernfortschritte speichern zu können muss das Lernmodul in ein Learning Management System (LMS) eingebettet sein.</string>
+    </installationRemarks>
+  </technical>
+  <educational>
+    <interactivityType>
+      <source>LOMv1.0</source>
+      <value>mixed</value>
+    </interactivityType>
+    <interactivityLevel>
+      <source>LOMv1.0</source>
+      <value>high</value>
+    </interactivityLevel>
+    <context>
+      <source>LOMv1.0</source>
+      <value>school</value>
+    </context>
+    <context>
+      <source>LOMv1.0</source>
+      <value>higher education</value>
+    </context>
+    <context>
+      <source>LOMv1.0</source>
+      <value>training</value>
+    </context>
+    <typicalAgeRange>
+      <string language="de">18-</string>
+    </typicalAgeRange>
+  </educational>
+  <rights>
+    <cost>
+      <source>LOMv1.0</source>
+      <value>no</value>
+    </cost>
+    <copyrightAndOtherRestrictions>
+      <source>LOMv1.0</source>
+      <value>yes</value>
+      <description>
+        <string language="de">Die Nutzung des Lernmoduls zum Selbstlernen sowie der Einsatz in der Lehre sind kostenlos und ohne Einschränkungen erlaubt, solange dies über www.webgeo.de erfolgt und dies auch zu jedem Zeitpunkt ersichtlich ist. Die Inhalte selbst sind allerdings urheberrechtlich geschützt. Besuchen Sie www.webgeo.de für weitere Informationen.</string>
+      </description>
+    </copyrightAndOtherRestrictions>
+  </rights>
+   <relation>
+    <kind>
+      <source>LOMv1.0</source>
+      <value>ispartof</value>
+    </kind>
+    <resource>
+      <identifier>
+        <catalog>WEBGEO:CAT_0</catalog>
+        <entry>WEBGEO regional</entry>
+      </identifier>
+    </resource>
+  </relation>
+  <relation>
+    <kind>
+      <source>LOMv1.0</source>
+      <value>ispartof</value>
+    </kind>
+    <resource>
+      <identifier>
+        <catalog>WEBGEO:CAT_1</catalog>
+        <entry>Darss</entry>
+      </identifier>
+    </resource>
+  </relation>
+  <relation>
+    <resource>
+      <description>
+        <string language="de">Kombinierbar mit den Lernmodulen zu Wasser in der Luft</string>
+      </description>
+    </resource>
+  </relation>
+</lom>

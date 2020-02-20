@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--************************MANIFEST begin************************-->
+<!--Das <webkitmanifest> ist in XML (Extensible Markup Language) verfasst.
+
+Siehe auch: http://de.wikipedia.org/wiki/Extensible_Markup_Language#Logischer_Aufbau.
+		
+Sie können einen freien Editor wie das XML Notepad von Microsoft zum komfortablen Editieren oder einen einfachen Texteditor wie Notepad++ oder Windows Notepad benutzen. ACHTEN SIE AUF DIE ZEICHENKODIERUNG UTF-8!
+		
+In der Datei webkitmanifest.xsd wird das verwendete XML-Schema definiert. Außerdem ist dort die Dokumentation der einzelnen Elemente abgelegt. Falls Sie einen Editor wie das XML Notepad 2007 benutzen, dann kö-->
+<webkitmanifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="webkitmanifest.xsd">
+  <!--************************METADATA begin************************-->
+  <metadata>
+    <!--******Version des verwendeten XML-Schemas******-->
+    <schemaVersion>3.1</schemaVersion>
+    <!--******Modoultitel, Autor und Einrichtung******-->
+    <moduletitle>Virtuelle Exkursion Darß</moduletitle>
+    <author>Matthias Merk und Detlef Thürkow</author>
+    <institution>Martin-Luther-Universität Halle-Wittenberg</institution>
+    <!--******Logo Navigationsleiste******-->
+    <logo>materials/webkit_webgeo_logo.swf</logo>
+    <!--******Logo Impressum******-->
+    <logo_small>materials/webkit_webgeo_logo.swf</logo_small>
+    <!--******Farbe Vorlagenelemente******-->
+    <mainColor>0x33CCCC</mainColor>
+    <!--******Farbe Navigationsleiste******-->
+    <barColor>0x33CCCC</barColor>
+    <!--******Textfarbe Navigationsleiste******-->
+    <barTextColor>0xFFFFFF</barTextColor>
+    <!--******Textfarbe Menüelemente******-->
+    <menuTextColor>0x555555</menuTextColor>
+    <!--******Text Navigationsleiste******-->
+    <barText title="&lt;b&gt;_title&lt;/b&gt;" subTitle="&lt;b&gt;_section&lt;/b&gt;" subSubTitle="_page" />
+    <!--******Zusatz für Navigationsmenüs******-->
+    <autoLabelNumbering>false</autoLabelNumbering>
+    <!--******Kontaktaddressen, Informationen zum Modul, Lizenzinformationen******-->
+    <email>admin@webgeo.de</email>
+    <url>http://www.webgeo.de</url>
+    <license_url>http://www.webgeo.de/impressum</license_url>
+    <licence_logo>blank.gif</licence_logo>
+    <!--******Glossar******-->
+    <wordreference label="" uri="" form="" />
+    <!--******Sitemap******-->
+    <sitemap></sitemap>
+    <!--******Navigationsverhalten******-->
+    <navigation continuous="true" menus="true" menusvisible="true" sectionsrestricted="false" autoCurrentPageMarker="true" skipMenusAndUseProgressBar="false" />
+    <!--******Zugriffsgeschützte Module******-->
+    <accesscontrol authentication="false" registration="false" registrationpage="materials/registration.html" />
+    <!--******User-Logging******-->
+    <userlogging keepstatus="true" usedb="false" httpmethod="POST" />
+    <!--******Schnittstelle zu serverseitigen Skripts zur DB-Anbindung******-->
+    <phpinterface>php/interfacetowebkit.php</phpinterface>
+    <!--******SCORM-Einstellungen******-->
+    <beSCO>true</beSCO>
+    <!--******Success Tracking******-->
+    <success_tracking>use_score</success_tracking>
+    <total_score>20</total_score>
+    <scaled_passing_score>0.6</scaled_passing_score>
+    <!--Developer-Vars-->
+    <webkitdevelopment debugging="false" />
+  </metadata>
+  <!--************************METADATA end************************-->
+  <!--************************ORGANIZATION begin************************-->
+  <organization>
+    <menu label="Start" title="Start">
+      <menuitem id="1.1" name="Einleitung" type="content" init_page_success="true" path="contents/d_003_01.swf" />
+    </menu>
+    <menu label="Inhalt" title="Inhalt">
+      <menuitem id="2.1" name="1. Standort: Parkplatz &quot;Drei Eichen&quot;" type="content" init_page_success="true" path="contents/d_003_02.swf" />
+      <menuitem id="2.2" name="2. Standort: Großer Stern" type="content" init_page_success="true" path="contents/d_003_03.swf" />
+      <menuitem id="2.3" name="3. Standort: Litorinakliff" type="content" init_page_success="true" path="contents/d_003_04.swf"></menuitem>
+      <menuitem id="2.4" name="4. Standort: Weststrand / Esper Ort" type="content" init_page_success="true" path="contents/d_003_05.swf" />
+      <menuitem id="2.5" name="5. Standort: K-Gestell Neudarß" type="content" init_page_success="true" path="contents/d_003_06.swf" />
+      <menuitem id="2.6" name="6. Standort: Leuchtturm Darßer Ort" type="content" init_page_success="true" path="contents/d_003_07.swf" />
+      <menuitem id="2.7" name="7. Standort: Rundwanderweg Darßer Ort / Libbertsee" type="content" init_page_success="true" path="contents/d_003_08.swf" />
+      <menuitem id="2.8" name="8. Standort: Prerower Hafen" type="content" init_page_success="true" path="contents/d_003_09.swf" />
+    </menu>
+    <menu label="Ende" title="Ende">
+      <menuitem id="3.1" name="Zusammenfassung" type="content" init_page_success="true" path="contents/d_003_10.swf" />
+    </menu>
+  </organization>
+  <!--************************ORGANIZATION end************************-->
+</webkitmanifest>
+<!--************************MANIFEST end************************-->

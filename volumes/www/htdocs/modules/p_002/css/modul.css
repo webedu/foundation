@@ -1,0 +1,69 @@
+td      {
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 11pt;
+        }
+p	{
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 11pt;
+        }
+td.b    {
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 10pt;
+         color:#000000;
+        }
+a.b     {
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 10pt;
+         color:#000000;
+        }
+h1      {
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 18pt;
+        }
+b.modul {
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 12pt;
+         margin-left: 5px;
+         color:#000000;
+        }
+b.titel {
+         font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 16pt;
+         line-height: 16pt;
+         color:#ffffff;
+        }
+b.pedo	{
+	 font-family:Arial,Helvetica,Sans-Serif;
+         font-size: 11pt;
+	 color:#D8A147;
+	}
+sub.tief {
+	  font-family:Arial,Helvetica,Sans-Serif;
+          font-size: 9pt;
+	 }
+sub.h	 {
+	  font-family:Arial,Helvetica,Sans-Serif;
+          font-size: 8pt;
+	 }
+	 
+a:visited {
+	   font-family:Arial,Helvetica,Sans-Serif;
+           font-size: 11pt;
+	   text-decoration:none;
+	   color:#003399;
+	  }
+a:active  {
+	   font-family:Arial,Helvetica,Sans-Serif;
+           font-size: 11pt;
+	   text-decoration:none;
+	   color:#003399;
+	  }
+a:link	{
+	   font-family:Arial,Helvetica,Sans-Serif;
+           font-size: 11pt;
+	   text-decoration:none;
+	   color:#003399;
+	  }
+
+
+
