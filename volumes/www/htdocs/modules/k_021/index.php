@@ -27,6 +27,19 @@
 	</script>
 	<script type="text/javascript" src="frame/js/menufunctions.js"></script>
 	<script type="text/javascript" src="frame/js/misc.js"></script>
+
+
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    // Update the paths below to the directory containing the Ruffle files on your web server.
+    window.RufflePlayer.config = {
+      "public_path": "../../common/vendor/ruffle",
+      "polyfills": ["static-content", "plugin-detect", "dynamic-content"]
+    };
+  </script>
+  <script src="../../common/vendor/ruffle/ruffle.js"></script>
+
+
 	<!--
 		Redirect to the TYPO3-iframe
 	-->

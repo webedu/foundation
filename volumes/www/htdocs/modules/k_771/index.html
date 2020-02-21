@@ -29,6 +29,18 @@
 	
 	<script type="text/javascript" src="javascript/scorm/getAPI_functions.js"></script>
 	<script type="text/javascript" src="javascript/scorm/interfacetolmsapi.js"></script>
+
+
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    // Update the paths below to the directory containing the Ruffle files on your web server.
+    window.RufflePlayer.config = {
+      "public_path": "../../common/vendor/ruffle",
+      "polyfills": ["static-content", "plugin-detect", "dynamic-content"]
+    };
+  </script>
+  <script src="../../common/vendor/ruffle/ruffle.js"></script>
+
 	
 	<!--
 		
@@ -56,7 +68,9 @@
 				var blowid=vars_array[2];
 			} else {
 				var blowid=vars_array[1];
-			}			var targeturl="http://www.webgeo.de/"+blowid+"/";
+			}
+
+			var targeturl="http://www.webgeo.de/"+blowid+"/";
 			if (parent) {
 				parent.location.replace (targeturl);
 			} else {
@@ -66,11 +80,14 @@
 	</script>
 	<!--... GLOSSAR-LINKS:-->
 	<script type="text/javascript">
-		function myopen (gbegriff) {			gbegriff = gbegriff.toLowerCase();
+		function myopen (gbegriff) {
+			gbegriff = gbegriff.toLowerCase();
 			gbegriff = gbegriff.replace(/ä/g,"ae");
 			gbegriff = gbegriff.replace(/ö/g,"oe");
 			gbegriff = gbegriff.replace(/ü/g,"ue");
-			gbegriff = gbegriff.replace(/ß/g,"ss");			gbegriff = gbegriff.replace(/ /g,"_");			gbegriff = gbegriff.replace(/#/g,"");
+			gbegriff = gbegriff.replace(/ß/g,"ss");
+			gbegriff = gbegriff.replace(/ /g,"_");
+			gbegriff = gbegriff.replace(/#/g,"");
 			if (gbegriff=="") {
 				var url='http://www.wiki.uni-freiburg.de/webgeo/doku.php?id=glossar:start';
 			} else {
