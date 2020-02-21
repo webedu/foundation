@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="../../common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
   <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global"-->
   <link href="../../common/vendor/fonts/awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global">
-  <link rel="stylesheet" type="text/css" href="../../common/css/main.css" media="screen" w4u-type="global"/>  
+  <link rel="stylesheet" type="text/css" href="../../common/css/main.css" media="screen" w4u-type="global"/> 
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" w4u-type="global">  
  </head>
  <body>
 
@@ -66,6 +67,8 @@
 <script src="../../common/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
 <script src="../../common/js/pages.js"></script>
 <?php javascriptPages($pages); ?>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>

@@ -4,15 +4,7 @@
   <div class="row" style="margin: 8px;">
    <div class="col-md-1 col-sm-0 hidden-sm"></div>
    <div class="col-md-10 col-sm-12"> 
-    <h2>Set up the file structure</h2>
-	<ul>
-      <li>modules</li>
-	  <li>naming: xyz_999</li>
-	  <li>metadata: wm_lom.xml (or later json)</li>
-	  <li>index.php</li>
-	  <li>css, js, img, video, ...</li>
-	  <li>local vs common</li>
-	</ul>
+
    </div> <!-- end md-10 -->
    <div class="col-md-1 col-sm-0 hidden-sm"></div>
   </div> <!-- end row -->
@@ -21,20 +13,88 @@
    <div class="col-md-1 col-sm-0  hidden-sm"></div>
    <div class="col-md-5 col-sm-6"> 
 
- 
-	   
-	<hr/>   
+    <h3>w4u-slider <i class="fa fa-keyboard"></i>(<i class="fa fa-film"></i>)</h3>
+    <p>The slider is a handsome possibility to modify a value in a range.
 
-	
+    <h4>Parameters</h4>
+    <table class='table table-bordered table-sm small text-center'>
+      <tr><th> Parameter </th><th> Type </th><th> Range </th><th> Default </th><th> Description </th></tr>
+      <tr><td> name </td><td> String </td><td> - </td><td> 'slider0' </td><td> Unique name of the component </td></tr>
+      <tr><td> orient </td><td> String </td><td> ['vertical'|'horizontal'] </td><td> 'horizontal' </td><td> Orientation of slider </td></tr>
+      <tr><td> color </td><td> String </td><td> ['#rrggbb'|'red'] </td><td> 'green' </td><td> Color of handle </td></tr>
+      <tr><td> background </td><td> String </td><td> ['#rrggbb'|'blue'] </td><td> 'grey' </td><td> Color of Range </td></tr>
+      <tr><td> min </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 0.0 </td><td> Minimum value of output </td></tr>
+      <tr><td> max </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 1.0 </td><td> Maximum value of output </td></tr>
+      <tr><td> continous </td><td> Boolean </td><td> [true|false] </td><td> false </td><td> Mode of value update during slide or only once when finished</td></tr>
+    </table>
+
+    <h4>In-Out</h4>
+    <table class='table table-bordered table-sm small text-center'>
+      <tr><th> Input </th><th> Variable </th><th> Output </th><th> Description </th></tr>
+      <tr><td> <i class="fa fa-crosshairs"></i><i class="fa fa-arrow-right"></i> </td><td> v </td><td> <i class="fa fa-arrow-right"><i class="fa fa-crosshairs"></i></i> </td><td> Relative value of slider min-max </td></tr>
+    </table>
+
+    <p>As the last example with slider3 shows a slider can als be used to visualize input values</p>
+
    </div> <!-- end md-5 -->
 
    <div class="col-md-5 col-sm-6">
 
+    <h4>Examples</h4>
 
+     <div class="row">
+	   <div class="col-4">
+         <w4u-slider name="slider1" orient="vertical" color="#FF0000" background="blue" min=0.2 max=0.8 continous=true />
+	   </div>
+	   <div class="col">
+         <pre><code class="html">
+&lt;w4u-slider 
+  name="slider1" 
+  orient="vertical" 
+  color="#FF0000" 
+  background="blue" 
+  continous=true 
+/>
+         </code></pre>	   
+	   </div>
+	 </div>
+	 
+        <div class="row">
+	   <div class="col-4">
+         <w4u-slider name="slider2" orient="horizontal" continous=false />
+	   </div>
+	   <div class="col">
+         <pre><code class="html">
+&lt;w4u-slider 
+  name="slider2" orient="horizontal" 
+  min=0.2 max=0.8 continous=false 
+/>
+         </code></pre>	   
+	   </div>
+	 </div>	 
+	 
+        <div class="row">
+	   <div class="col-4">
+	     <c4u-circuitry>
+           <w4u-slider name="slider3" orient="horizontal" background="#00FF00" min=-1.0 max=1.0 />
+		   <w4u-signal name="signal1" frequency="0.05" iterval="0.01"></w4u-signal>
+           <c4u-connection source="signal1-cos" target="slider3-v"> </c4u-connection>
+         </c4u-circuitry>		 
+	   </div>
+	   <div class="col">
+         <pre><code class="html">
+&lt;w4u-slider name="slider3" 
+  orient="horizontal" background="#00FF00"
+  min=-1.0 max=+1.0
+/>
+         </code></pre>	   
+	   </div>
+	 </div>		 
 
    </div> <!-- end md-5 -->
    <div class="col-md-1 col-sm-0 hidden-sm"></div>
   </div> <!-- end row -->
+  
  </div> <!-- end container -->  
   
 
