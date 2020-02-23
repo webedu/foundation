@@ -34,7 +34,7 @@
       <tr><td> <i class="fa fa-crosshairs"></i><i class="fa fa-arrow-right"></i> </td><td> v </td><td> <i class="fa fa-arrow-right"><i class="fa fa-crosshairs"></i></i> </td><td> Relative value of slider min-max </td></tr>
     </table>
 
-    <p>As the last example with slider3 shows a slider can als be used to visualize input values</p>
+    <p>As the last example with slider3 shows, a slider can als be used to visualize input values</p>
 
    </div> <!-- end md-5 -->
 
@@ -44,7 +44,11 @@
 
      <div class="row">
 	   <div class="col-4">
-         <w4u-slider name="slider1" orient="vertical" color="#FF0000" background="blue" min=0.2 max=0.8 continous=true />
+             <c4u-circuitry>
+               <w4u-slider name="slider1" orient="vertical" color="#FF0000" background="blue" continous=true></w4u-slider>
+               <span>&nbsp; &nbsp; &nbsp; <w4u-label name="label1"></w4u-label></span>
+               <c4u-connection source="slider1-v" target="label1-v"> </c4u-connection>
+             </c4u-circuitry>
 	   </div>
 	   <div class="col">
          <pre><code class="html">
@@ -61,7 +65,11 @@
 	 
         <div class="row">
 	   <div class="col-4">
-         <w4u-slider name="slider2" orient="horizontal" continous=false />
+              <c4u-circuitry>
+                <w4u-slider name="slider2" orient="horizontal" min=0.2 max=0.8 continous=false></w4u-slider>
+                <p><w4u-label name="label2"></w4u-label></p>
+                <c4u-connection source="slider2-v" target="label2-v"> </c4u-connection>
+              </c4u-circuitry>
 	   </div>
 	   <div class="col">
          <pre><code class="html">
@@ -76,7 +84,7 @@
         <div class="row">
 	   <div class="col-4">
 	     <c4u-circuitry>
-           <w4u-slider name="slider3" orient="horizontal" background="#00FF00" min=-1.0 max=1.0 />
+           <w4u-slider name="slider3" orient="horizontal" background="#00FF00" min=-1.0 max=1.0></w4u-slider>
 		   <w4u-signal name="signal1" frequency="0.05" iterval="0.01"></w4u-signal>
            <c4u-connection source="signal1-cos" target="slider3-v"> </c4u-connection>
          </c4u-circuitry>		 
