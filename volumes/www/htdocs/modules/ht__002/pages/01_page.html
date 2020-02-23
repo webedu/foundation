@@ -25,7 +25,7 @@
       <tr><td> background </td><td> String </td><td> ['#rrggbb'|'blue'] </td><td> 'grey' </td><td> Color of Range </td></tr>
       <tr><td> min </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 0.0 </td><td> Minimum value of output </td></tr>
       <tr><td> max </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 1.0 </td><td> Maximum value of output </td></tr>
-      <tr><td> continous </td><td> Boolean </td><td> [true|false] </td><td> false </td><td> Mode of value update during slide or only once when finished</td></tr>
+      <tr><td> continuous </td><td> Boolean </td><td> [true|false] </td><td> false </td><td> Mode of value update during slide or only once when finished</td></tr>
     </table>
 
     <h4>In-Out</h4>
@@ -45,7 +45,7 @@
      <div class="row">
 	   <div class="col-4">
              <c4u-circuitry>
-               <w4u-slider name="slider1" orient="vertical" color="#FF0000" background="blue" continous=true></w4u-slider>
+               <w4u-slider name="slider1" orient="vertical" color="#FF0000" background="blue" continuous=true></w4u-slider>
                <span>&nbsp; &nbsp; &nbsp; <w4u-label name="label1"></w4u-label></span>
                <c4u-connection source="slider1-v" target="label1-v"> </c4u-connection>
              </c4u-circuitry>
@@ -57,7 +57,7 @@
   orient="vertical" 
   color="#FF0000" 
   background="blue" 
-  continous=true 
+  continuous=true 
 />
          </code></pre>	   
 	   </div>
@@ -66,7 +66,7 @@
         <div class="row">
 	   <div class="col-4">
               <c4u-circuitry>
-                <w4u-slider name="slider2" orient="horizontal" min=0.2 max=0.8 continous=false></w4u-slider>
+                <w4u-slider name="slider2" orient="horizontal" min=0.2 max=0.8 continuous=false></w4u-slider>
                 <p><w4u-label name="label2"></w4u-label></p>
                 <c4u-connection source="slider2-v" target="label2-v"> </c4u-connection>
               </c4u-circuitry>
@@ -75,7 +75,7 @@
          <pre><code class="html">
 &lt;w4u-slider 
   name="slider2" orient="horizontal" 
-  min=0.2 max=0.8 continous=false 
+  min=0.2 max=0.8 continuous=false 
 />
          </code></pre>	   
 	   </div>
