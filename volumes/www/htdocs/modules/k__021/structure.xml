@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <metadata>
+    <schema>WEBGEO Manifest</schema>
+    <schemaversion>WEBGEO2StandAlone Migration 1 - Jul 2009</schemaversion>
+    <folder>k_021</folder>
+    <home>http://www.webgeo.de</home>
+    <tools>
+      <glossary form="http://www.wiki.uni-freiburg.de/webgeo/doku.php?id=glossar:">http://www.wiki.uni-freiburg.de/webgeo/doku.php?id=glossar:start</glossary>
+      <calculator>http://www.webgeo.de/index.php?id=calculator</calculator>
+    </tools>
+    <location>metadata/module_lom.xml</location>
+  </metadata>
+  <organization>
+    <item>k_021_01</item>
+    <!-- optional attribute for <item>: branching="false"/"true"; "true" will disable next-button in favour of in-page navigation -->
+    <item>k_021_02</item>
+    <item>k_021_03</item>
+    <item>k_021_04</item>
+    <item>k_021_05</item>
+    <item>k_021_06</item>
+  </organization>
+</manifest>

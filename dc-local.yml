@@ -2,13 +2,13 @@ version: '2'
 services:
 
   cre-glue:
-    image: tamboraorg/creglue:0.2020
+    image: tamboraorg/creglue:2018.0
     container_name: creglue
     volumes:
      - /var/run/docker.sock:/tmp/docker.sock:ro
 
   cre-proxy:
-    image: tamboraorg/creproxy:0.2020
+    image: tamboraorg/creproxy:2018.0
     container_name: creproxy
     environment:
       ADMIN_EMAIL: michael.kahle@yahoo.de
@@ -23,7 +23,7 @@ services:
       - cre-glue
 
   cre-nginx-php:
-   image: tamboraorg/crenginxphp:0.2020
+   image: tamboraorg/crenginxphp:2018.0
    container_name: crenginxphp
    environment: 
      CRE_SUBDOMAIN: www
@@ -34,7 +34,7 @@ services:
     - cre-glue
 
   cre-php:
-   image: tamboraorg/crephp:0.2020
+   image: tamboraorg/crephprust:2018.0
    container_name: crephp
    environment:
      CRE_NGINX: crenginxphp

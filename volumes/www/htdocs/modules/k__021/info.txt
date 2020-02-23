@@ -1,0 +1,46 @@
+Update zur Pseuodo-Stand-Alone-Version (PHP nötig, aber keine komplexen Bäume, alle notwendigen Dateien hier)
+
+Veränderte und hinzugefügte Dateien:
+************************************
+index.php
+structure.xml
+iframe_content.php
+navi_php_inc.php
+php/xmlparser.php
+php/get_iframe_query_string.php
+css/frame.css
+css/iframe.css
+js/menufunctions.js
+js/misc.js
+metadata/...
+
+Graphiken für die Navigation bei PHP-Contents:
+**********************************************
+1. Graphiken aus dem Ordner \\ipg.geographie.uni-freiburg.de\webgeo\module\img kopieren
+2. Auswahl nach Teilprojekt
+3. Je vier Stück
+4. Z.B.: modul_navi_p_back.gif, modul_navi_p_mitte.gif, modul_navi_p_next.gif, modul_navi_p_ende.gif
+5. Projektbuchstabe muss weg (bei allen vieren), z.B: modul_navi_back.gif
+6. Alle vier müssen nach /img/navigation im Modulordner
+
+Die Seiten-PHP-Dateien müssen vielleicht doch auch angepasst werden:
+********************************************************************
+
+(Nur in Notfällen)
+
+A: PHP-Contents:
+****************
+Bsp.: p_002_05.php
+
+Achtung:
+1. Pfad zur CSS-File
+2. Pfade zu Bildern etc.
+
+
+B: SWF-Contents:
+****************
+Bsp.: p_002_02.php
+
+Achtung:
+1. Pfad zur CSS-File
+2. Pfade zu Bildern etc.
