@@ -77,13 +77,15 @@
 	 
         <div class="row">
 	   <div class="col-4">
+               <br/>
                <p><w4u-number name="number0" min=-999999999 max=999999999></p>
                <p><w4u-label name="label3" format="postfix" unit="m" value=0.5></w4u-label></p>
                <c4u-connection source="number0-v" target="label3-value"> </c4u-connection>
 	   </div>
 	   <div class="col">
          <pre><code class="html">
-&lt;w4u-label name="label3" 
+&lt;w4u-label 
+  name="label3" 
   format="postfix" unit="m"
   value=0.5
 />
