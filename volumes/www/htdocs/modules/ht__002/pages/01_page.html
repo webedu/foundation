@@ -13,28 +13,27 @@
    <div class="col-md-1 col-sm-0  hidden-sm"></div>
    <div class="col-md-5 col-sm-6"> 
 
-    <h3>w4u-slider <i class="fa fa-keyboard"></i>(<i class="fa fa-film"></i>)</h3>
-    <p>The slider is a handsome possibility to modify a value in a range.
+    <h3>w4u-label <i class="fa fa-tv"></i></h3>
+    <p>The label displays numerical data.
 
     <h4>Parameters</h4>
     <table class='table table-bordered table-sm small text-center'>
       <tr><th> Parameter </th><th> Type </th><th> Range </th><th> Default </th><th> Description </th></tr>
-      <tr><td> name </td><td> String </td><td> - </td><td> 'slider0' </td><td> Unique name of the component </td></tr>
-      <tr><td> orient </td><td> String </td><td> ['vertical'|'horizontal'] </td><td> 'horizontal' </td><td> Orientation of slider </td></tr>
-      <tr><td> color </td><td> String </td><td> ['#rrggbb'|'red'] </td><td> 'green' </td><td> Color of handle </td></tr>
-      <tr><td> background </td><td> String </td><td> ['#rrggbb'|'blue'] </td><td> 'grey' </td><td> Color of Range </td></tr>
-      <tr><td> min </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 0.0 </td><td> Minimum value of output </td></tr>
-      <tr><td> max </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 1.0 </td><td> Maximum value of output </td></tr>
-      <tr><td> continuous </td><td> Boolean </td><td> [true|false] </td><td> false </td><td> Mode of value update during slide or only once when finished</td></tr>
+      <tr><td> name </td><td> String </td><td> - </td><td> 'label0' </td><td> Unique name of the component </td></tr>
+      <tr><td> value </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 0.5 </td><td> Initial value to display </td></tr>
+      <tr><td> digits </td><td> Integer </td><td> 0 - 99 </td><td> 2 </td><td> Numer of digits </td></tr>
+      <tr><td> variable </td><td> String </td><td> ['l'|'F'] </td><td> '' </td><td> Variable of number </td></tr>
+      <tr><td> unit </td><td> String </td><td> ['m'|'newton'] </td><td> '' </td><td> Unit of number </td></tr>
+      <tr><td> format </td><td> String </td><td> ['plain'|'scientific'|'postfix'] </td><td> 'plain' </td><td> Exponent format </td></tr>
+      <tr><td> offset </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 0.0 </td><td> Offset before display </td></tr>
+      <tr><td> scale </td><td> Number </td><td> -9999.99 - 9999.99 </td><td> 1.0 </td><td> Scale before display </td></tr>
     </table>
 
     <h4>In-Out</h4>
     <table class='table table-bordered table-sm small text-center'>
       <tr><th> Input </th><th> Variable </th><th> Output </th><th> Description </th></tr>
-      <tr><td> <i class="fa fa-crosshairs"></i><i class="fa fa-arrow-right"></i> </td><td> v </td><td> <i class="fa fa-arrow-right"><i class="fa fa-crosshairs"></i></i> </td><td> Relative value of slider min-max </td></tr>
+      <tr><td> <i class="fa fa-crosshairs"></i><i class="fa fa-arrow-right"></i> </td><td> value </td><td> - </td><td> Value to display </td></tr>
     </table>
-
-    <p>As the last example with slider3 shows, a slider can als be used to visualize input values</p>
 
    </div> <!-- end md-5 -->
 
@@ -42,22 +41,18 @@
 
     <h4>Examples</h4>
 
+    <c4u-circuitry>
+       <w4u-signal name="signal1" frequency="0.05" iterval="0.25"></w4u-signal>
+
      <div class="row">
 	   <div class="col-4">
-             <c4u-circuitry>
-               <w4u-slider name="slider1" orient="vertical" color="#FF0000" background="blue" continuous=true></w4u-slider>
-               <span>&nbsp; &nbsp; &nbsp; <w4u-label name="label1"></w4u-label></span>
-               <c4u-connection source="slider1-v" target="label1-v"> </c4u-connection>
-             </c4u-circuitry>
+               <p><w4u-label name="label1"></w4u-label></p>
+               <c4u-connection source="signal1-cos" target="label1-value"> </c4u-connection>
 	   </div>
 	   <div class="col">
          <pre><code class="html">
-&lt;w4u-slider 
-  name="slider1" 
-  orient="vertical" 
-  color="#FF0000" 
-  background="blue" 
-  continuous=true 
+&lt;w4u-label 
+  name="label1" 
 />
          </code></pre>	   
 	   </div>
@@ -65,17 +60,16 @@
 	 
         <div class="row">
 	   <div class="col-4">
-              <c4u-circuitry>
-                <w4u-slider name="slider2" orient="horizontal" min=0.2 max=0.8 continuous=false></w4u-slider>
-                <p><w4u-label name="label2"></w4u-label></p>
-                <c4u-connection source="slider2-v" target="label2-v"> </c4u-connection>
-              </c4u-circuitry>
+              <p><w4u-label name="label2" offset=5 scale=20 variable="Ø" unit="parsec" format="scientific"></w4u-label></p>
+              <c4u-connection source="signal1-sin" target="label2-value"> </c4u-connection>
 	   </div>
 	   <div class="col">
          <pre><code class="html">
-&lt;w4u-slider 
-  name="slider2" orient="horizontal" 
-  min=0.2 max=0.8 continuous=false 
+&lt;w4u-label 
+  name="label2" 
+  variable="Ø" unit="parsec" 
+  format="scientific"
+  offset=5.0 scale=20.0 
 />
          </code></pre>	   
 	   </div>
@@ -83,17 +77,15 @@
 	 
         <div class="row">
 	   <div class="col-4">
-	     <c4u-circuitry>
-           <w4u-slider name="slider3" orient="horizontal" background="#00FF00" min=-1.0 max=1.0></w4u-slider>
-		   <w4u-signal name="signal1" frequency="0.05" iterval="0.01"></w4u-signal>
-           <c4u-connection source="signal1-cos" target="slider3-v"> </c4u-connection>
-         </c4u-circuitry>		 
+               <p><w4u-number name="number0" min=-999999999 max=999999999></p>
+               <p><w4u-label name="label3" format="postfix" unit="m" value=0.5></w4u-label></p>
+               <c4u-connection source="number0-v" target="label3-value"> </c4u-connection>
 	   </div>
 	   <div class="col">
          <pre><code class="html">
-&lt;w4u-slider name="slider3" 
-  orient="horizontal" background="#00FF00"
-  min=-1.0 max=+1.0
+&lt;w4u-label name="label3" 
+  format="postfix" unit="m"
+  value=0.5
 />
          </code></pre>	   
 	   </div>
@@ -103,6 +95,8 @@
    <div class="col-md-1 col-sm-0 hidden-sm"></div>
   </div> <!-- end row -->
   
+  </c4u-circuitry>	
+
  </div> <!-- end container -->  
   
 
