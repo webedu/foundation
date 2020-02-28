@@ -52,7 +52,7 @@
        <h2><?php echo $metadata['title']['data']; ?></h2>
        </div>
       <div class="col-md-6 col-sm-6">
-        <img style="margin-bottom:10px;" class="float-right" src="/common/img/webgeo_header.gif">
+        <a href="/" onclick="return confirm('Modul verlassen?')"><img style="margin-bottom:10px;" class="float-right" src="/common/img/webgeo_header.gif"></a>
       </div>
       <div class="col-md-1 col-sm-1">
         <img style="margin-bottom:10px;" class="float-left" id="forward" src="/common/img/forward.png">    

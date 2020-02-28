@@ -13,11 +13,17 @@
 <html>
 
 <?php
- if($_SESSION["flash"] == "available") {
-   include("./index_flash.php");
+ if(array_key_exists('flash',$_COOKIE) && !empty($_COOKIE['flash']))
+ {
+   if($_COOKIE["flash"] == "available") {
+     include("./index_flash.php");
+   } else {
+     include("./index_ruffle.php");
+   } 
  } else {
-   include("./index_ruffle.php");
- }  
+   include("./index_flash.php");	 
+ }
+ 
 ?>
 
 </html>

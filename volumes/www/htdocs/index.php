@@ -39,7 +39,8 @@
   <base href="http://www.webgeo.de">
 
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" -->
+  <link rel="stylesheet" href="/common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Popper JS -->
@@ -47,6 +48,7 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="common/js/wordcloud2.js"></script>
+  <script src="common/js/flash.js"></script> 
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/main.css" media="screen" /-->
   <link rel="stylesheet" type="text/css" href="common/css/main.css" media="screen" />  
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/navigation.css" media="screen" /-->
@@ -56,6 +58,14 @@
   <link rel="shortcut icon" type="image/x-icon" href="common/img/favicon.ico">
   <title><?php printTitle($subTopics) ?></title>
  </head>
+ 
+ <?php
+  $state = "";
+  if(array_key_exists('flash',$_COOKIE) && !empty($_COOKIE['flash'])) {
+    $state = $_COOKIE["flash"];     
+  }
+ ?>
+ 
  <body>
   <div class="container-fluid">
     <p style='font-size:1px;'>&nbsp;</p>
@@ -73,25 +83,31 @@
       </div>
       <div class="col-md-6 col-sm-7">
         <img style="margin-bottom:10px;" class='float-right' src="/common/img/webgeo_header.gif">
+		
         <a href="https://helpx.adobe.com/flash-player.html" target="flash" class="float-right flash-plugin" style="display: none;">
           <img width="100px" height="66px" src="/common/img/flash.jpg" style="margin: 0px 0px;">
             <span class="float-right" style="font-size: 90%; margin: 0px 10px"><span style="color: red;">Plugin für</span><br/><b>Flash Player</b><br/><span style="color: red;">wird benötigt</span></span>
         </a>
-        <script>
-         function flashExists() {
-          for (var i in navigator.plugins) {
-           if (navigator.plugins[i].name && navigator.plugins[i].name.toString().indexOf('Flash') > -1) {
-            return true;
-           }
-         }
-         return false;
-        }
-        if(flashExists()) {
-           $(".flash-plugin").hide();
-        } else {
-           $(".flash-plugin").show(2000).fadeOut(500).fadeIn(1000).fadeOut(500).fadeIn(1000).fadeOut(500).fadeIn(1000);
-        }
-        </script>
+		
+		<span class="float-right flash-used" style="display: none;">
+          <img width="100px" height="66px" src="/common/img/flash.jpg" style="margin: 0px 0px;">
+		  <span class="float-right" style="font-size: 90%; margin: 0px 10px">Nutzt <b>Adobe Player</b><br/>für Flash Inhalte<br/>
+		              <span style="color: blue;" class="ruffle-use" style="di2splay: none;" onclick='switchToRuffle(); return false'>Zu Ruffle wechseln</span>
+          </span>
+        </span>		  
+
+		<span class="float-right ruffle-used" style="display: none;">
+          <a href="http://ruffle.rs/" target="flash"><img width="100px" height="66px" src="/common/img/ruffle.png" style="margin: 0px 0px;"></a>
+		  <span class="float-right" style="font-size: 90%; margin: 0px 10px">Nutzt <b>Ruffle</b><br/>für Flash Inhalte<br/>
+		              <span style="color: blue;" class="flash-use" style="display: none;" onclick='switchToAdobe(); return false'>Zu Adobe wechseln</span>
+          </span>
+        </span>			  
+		
+	<script>
+		var state = initFlash("<?= $state ?>");
+        showFlash(state);		  
+	</script>
+		
       </div>
       <div class="col-md-2 col-sm-1"></div>
     </div>
