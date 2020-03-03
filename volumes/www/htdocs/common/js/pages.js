@@ -3,9 +3,14 @@ var pageData = {current:1, pages: ['empty']}
 
 function pageForward() {
    if(pageData.current < pageData.pages.length) {
-      $(pageData.pages[pageData.current-1]).hide();
+      oldPage = $(pageData.pages[pageData.current-1]).addClass("w4uHidden");
       pageData.current++;
-      $(pageData.pages[pageData.current-1]).show();
+      newPage = $(pageData.pages[pageData.current-1]).removeClass("w4uHidden");
+      //oldPage.hide();
+      oldPage.addClass("w4uHidden");
+      //newPage.show();
+      newPage.removeClass("w4uHidden");
+
       $('#backward').prop('disabled', false).show();
       if(pageData.current == pageData.pages.length) {
         $('#forward').prop('disabled', true).hide();
@@ -15,11 +20,14 @@ function pageForward() {
 
 function pageBackward() {
    if(pageData.current > 1) {
-      oldPage = $(pageData.pages[pageData.current-1]).hide();
+      oldPage = $(pageData.pages[pageData.current-1]).addClass("w4uHidden");
       pageData.current--;
-      newPage = $(pageData.pages[pageData.current-1]).show();
-      oldPage.hide();
-      newPage.show();
+      newPage = $(pageData.pages[pageData.current-1]).removeClass("w4uHidden");
+      //oldPage.hide();
+      oldPage.addClass("w4uHidden");
+      //newPage.show();
+      newPage.removeClass("w4uHidden");
+
       $('#forward').prop('disabled', false).show();
       if(pageData.current == 1) {
         $('#backward').prop('disabled', true).hide();
@@ -29,7 +37,8 @@ function pageBackward() {
 
 function hidePages() {
     for (var i = 1; i < pageData.pages.length; i++) {
-      $(pageData.pages[i]).hide();
+      //$(pageData.pages[i]).hide();
+      $(pageData.pages[i]).addClass("w4uHidden");
     }
 }
 

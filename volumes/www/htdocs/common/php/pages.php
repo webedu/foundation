@@ -8,10 +8,10 @@ function collectPages($moduleDir)
 
 function includePages($pages) {
   $i=0;
-  $display = "";
+  //$display = "";
   foreach($pages as $page) {
     $i++;
-    echo "<div id='page_".$i."' class='page' style='".$display."'>\n";
+    echo "<div id='page_".$i."' class='page'>\n";
     include($page);
     echo "</div>\n";
     // $display = "display: none";  // panorama.... needs resize, hide in init instead

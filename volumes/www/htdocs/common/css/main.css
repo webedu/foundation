@@ -178,4 +178,27 @@ img.overImg
       z-index: 2;
     }
 
+.w4uHidden {
+    display: none;
+} 
+
+@media print {
+  html {
+    transform: scale(0.8);
+  }
+  .w4uHidden {
+    display: block;
+  } 
+ * {
+   font-size: 12px;
+   line-height: 2;
+ }
+ .col-print-0 {width: 0px !important; display: none}
+ .col-print-6 {
+   flex: 0 0 50%  !important;
+   max-width: 50% !important;}
+ .col-print-12 {
+   flex: 0 0 100%  !important;
+   max-width: 100% !important;}
+}
 
