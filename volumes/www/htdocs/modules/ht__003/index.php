@@ -22,7 +22,6 @@
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-loader.js"></script-->
 <script src="../../common/js/w4u/c4u-main.min.js"></script>
 <script src="../../common/js/w4u/w4u-main.min.js"></script>
-<script src="../../common/js/w4u/w4u-test.min.js"></script>
 
 <script src="../../common/vendor/jquery/jquery.min.js"></script>
 <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->

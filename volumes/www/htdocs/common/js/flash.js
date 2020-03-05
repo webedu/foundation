@@ -1,9 +1,19 @@
-		 function after2020() {
+        function isKioskMode() {
+			var agent = navigator.userAgent;
+			return ((agent.indexOf('Mozilla') !== -1) &&
+			        (agent.indexOf('Firefox/60.0') !== -1) &&
+					(agent.indexOf('Win64') !== -1) &&
+					!window.screenTop && !window.screenY  // fullScreen Kiosk Test...
+					 );
+		}
+
+		function after2020() {
 			var currentTime = new Date();
 			var year =  currentTime.getFullYear();
             return year > 2020;
-		 }			 
-         function flashExists() {
+		}	
+		 
+        function flashExists() {
           for (var i in navigator.plugins) {
            if (navigator.plugins[i].name && navigator.plugins[i].name.toString().indexOf('Flash') > -1) {
             return true;
@@ -11,22 +21,27 @@
          }
          return false;
         }
+		
 		function initFlash(state) {
-		  if(""==state) {	
-		    if(after2020()) {
-			   state = "ruffle";	
-		       $.post("session.php", { flash:"ruffle"});
-            } else if(flashExists()) {
+		  if((""==state) || ("missing"==state)) {	
+            if(flashExists()) {
 			   state = "available";	
-		       $.post("session.php", { flash:"available"});			
+			   //if(isKioskMode()) {
+			   //	   state = "kiosk";
+			   //}
+		       //$.post("session.php", { flash:"available"});
+			}			   
+		    else if(after2020()) {
+			   state = "ruffle";	
+		       //$.post("session.php", { flash:"ruffle"});
             } else {
 			   state = "missing";	
-		       $.post("session.php", { flash:"missing"});
+		       //$.post("session.php", { flash:"missing"});
             }
+			 $.post("session.php", { 'flash':state});
 		  }
 		  return state;
 		}
-		
 
 		function showFlash(state) {
 			if('ruffle' == state) {
@@ -41,6 +56,11 @@
 			   $(".flash-used").show();
 			   $(".ruffle-used").hide();
 			   $(".flash-plugin").hide();
+			   if(isKioskMode()) {
+			     $(".ruffle-use").hide();
+			   } else {
+			     $(".ruffle-use").show();
+			   }
 			} else {
 			  $(".flash-use").hide();				
 			  if(after2020()) {	

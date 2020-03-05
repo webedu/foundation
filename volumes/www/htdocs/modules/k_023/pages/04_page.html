@@ -1,0 +1,103 @@
+ <div class="container-fluid">
+  <div class="row" style="margin: 8px;">
+   <div class="col-md-1 "></div>
+   <div class="col-md-5 "> 
+    <h2>Dämmerungszeiten</h2>
+    <p>Zu den Sonnenbahnen verschiedener geographischer Breite gehören auch verschieden lange Dämmerungszeiten.
+	   Während der Dämmerung vor Sonnenaufgang bzw. nach Sonnenuntergang wird der Hinmmel durch gestreutes Sonnenlicht erhellt.</p>
+	<hr/>   
+	<h4>Definitionen der Dämmerung sind:</h4>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          bürgerliche Dämmerung
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Während der bürgerlichen Dämmerung ist es im Freien noch möglich einen gedruckten Text zu lesen.
+		Dies ist im Allgemeinen der Fall, wenn sich die Sonne weniger als 6° unter dem Horizont befindet.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          nautische Dämmerung
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Während der nautischen Dämmerung ist es für die Seefahrer noch nicht möglich, nach den Sternen zu navigieren.
+		Dies ist erst möglich, wenn sich die Sonne tiefer als 12° unter dem Horizont befindet.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          astronomische Dämmerung
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Während der astronomischen Dämmerung sind die Sterne noch nicht mit ihrer vollen Leuchtkraft sichtbar.
+		Erst wenn sich die Sonne mehr als 18° unter dem Horizont befindet, strahlen die Sterne in ihrer vollen Leuchtkraft.
+      </div>
+    </div>
+  </div>
+</div>		
+	
+   </div> <!-- end md-5 -->
+
+   <div class="col-md-5">
+	<p><img src="/common/img/tip.png" />
+	  Blenden Sie die unterschiedlichen Sonnenbahnen ein und vergleichen Sie die Teile der Sonnenbahn, die sich im Bereich der Dämmerung befinden.</p>
+	  
+ 
+    <div id='solar4'>
+      <c4u-circuitry>
+      <p><b>Scheinbare Sonnenbahn am 21. März und 23. September</b></p>
+      <div style="position: relative; left: 0; top: 0;">
+        <img src="./img/twili_base.png" class="baseImg img-fluid" >
+        <w4u-visibility name="polar" mode="opacity" default="hide">
+          <img src="./img/twili_polar.png" class="overImg img-fluid" id="polarPic">
+        </w4u-visibility>
+       <w4u-visibility name="wende" mode="opacity" default="hide">
+        <img src="./img/twili_wende.png" class="overImg img-fluid" id="wendePic">	  
+       </w4u-visibility>
+       <w4u-visibility name="equator" mode="opacity" default="hide">
+        <img src="./img/twili_equat.png" class="overImg img-fluid" id="equatPic">
+       </w4u-visibility>
+      </div>
+      <div>
+         <w4u-check name="polar">Polarkreis</w4u-check>&nbsp; 
+         <w4u-check name="wende">Wendekreis</w4u-check>&nbsp; 
+         <w4u-check name="equator">Äquator</w4u-check>&nbsp; 
+      </div>
+
+      <c4u-connection source="polar-b" target="polar-show"> </c4u-connection>
+      <c4u-connection source="wende-b" target="wende-show"> </c4u-connection>
+      <c4u-connection source="equator-b" target="equator-show"> </c4u-connection>
+
+    </c4u-circuitry>
+
+    </div>	
+   </div> <!-- end md-5 -->
+   <div class="col-md-1 "></div>
+  </div> <!-- end row -->
+ </div> <!-- end container -->  
+ 
+ 
+
+  
+

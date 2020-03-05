@@ -1,0 +1,4 @@
+connectiontype
+= "authentication"
+= "activitylogging"
+= "feedback"

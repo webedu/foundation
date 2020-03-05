@@ -115,6 +115,13 @@ function logModule($topic = NULL)
     if(!is_string($topic) or strlen($topic) < 1) {
       $topic = trim($_SERVER['PATH_INFO'], ' /');
     }  
+	if($_COOKIE["flash"] == "available") {
+		$topic .= '-F';
+	} else if(($_COOKIE["flash"] == "missing") or ($_COOKIE["flash"] == "ruffle")) {
+		$topic .= '-R';
+	} else {
+        $topic .= '-U';
+	}		
   }
   $agent = $_SERVER['HTTP_USER_AGENT'];
   if(!isBot($agent)) {
@@ -133,6 +140,13 @@ function logIp()
           logIntoFile($agent, 'bots.txt', 500, TRUE);
         } else {
           logIntoFile($agent, 'no_bots.txt', 500, TRUE);
+		  if($_COOKIE["flash"] == "available") {
+		    $agent .= '-F';
+	      } else if(($_COOKIE["flash"] == "missing") or ($_COOKIE["flash"] == "missing")) {
+		    $agent .= '-R';
+	      } else {
+			$agent .= '-U'; 
+		  }
           $location = getLocationByIp($ip, true); 
           //echo $location;
           if(!is_null($location) and is_string($location)) {
