@@ -11,7 +11,7 @@ function includeFlashes($flashes) {
   $display = "";
   foreach($flashes as $flash) {
     $i++;
-    echo "<div id='page_".$i."' class='page' style='".$display."'>\n";
+    echo "<div id='page_".$i."' class='page' >\n";
     // include($flash);
 	
     echo " <div class='container-fluid'>\n";
@@ -40,6 +40,19 @@ function includeFlashes($flashes) {
     echo " </div> <!-- end container -->\n"; 
     echo "</div>\n";
   }
+}
+
+function includeFlashSelect($flashes) {
+  $i=0;
+  $l=count($flashes);
+  //$display = "";
+  echo "<select class='custom-select' id='page-select'>\n";
+  foreach($flashes as $page) {
+    $i++;
+    echo "<option value='".$i."'>Page: ".$i." / ".$l."</option>\n";
+    // $display = "display: none";  // panorama.... needs resize, hide in init instead
+  }	
+  echo "</select>\n";
 }
 
 function javascriptFlashes($flashes) {

@@ -59,7 +59,7 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01"><?php echo $metadata['title']['data']; ?></label>
           </div>
-          <?php includePageSelect($pages); ?>
+          <?php includeFlashSelect($pages); ?>
         </div>	
        </div>
       <div class="col-md-6 col-sm-6">
