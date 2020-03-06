@@ -1,5 +1,8 @@
 
-<?php require('../../common/php/flashes.php');
+<?php 
+ include ("../../common/php/redirect.php");
+ checkRedirect(); 
+ require('../../common/php/flashes.php');
  $pageDir = 'flash';
  if(file_exists("contents")) {
    $pageDir = 'contents';

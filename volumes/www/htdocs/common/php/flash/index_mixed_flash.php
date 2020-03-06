@@ -1,4 +1,7 @@
-<?php require('../../common/php/pages.php'); 
+<?php 
+ include ("../../common/php/redirect.php");
+ checkRedirect();
+ require('../../common/php/pages.php'); 
  $pages = collectPages(".");
 ?>
 

@@ -1,3 +1,7 @@
+<?php 
+ include ("../../common/php/redirect.php");
+ checkRedirect();
+?>
 <!-- index_contents.php -->
 <head>
 	<!--

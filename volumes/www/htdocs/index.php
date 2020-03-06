@@ -2,10 +2,12 @@
  //error_reporting (E_ALL ^ E_NOTICE);
  include ("common/php/get_module_data.php");
  include ("common/php/mail_and_log.php");
+ include ("common/php/redirect.php");
  $topic = trim($_SERVER['REDIRECT_URL'], ' /');
  if(!is_string($topic) or strlen($topic) < 1) {
    $topic = trim($_SERVER['PATH_INFO'], ' /');
  }
+ checkRedirect();	  
  $searchTerm = $_GET['search'];
  $moduleData = getModulesMetaData();
  $subTopics = null;
@@ -137,6 +139,7 @@
 	<script>
 		var state = initFlash("<?= $state ?>");
         showFlash(state);
+		$( document ).ready(function() { showKioskModal(); });
 	</script>
 		
       </div>
@@ -205,6 +208,24 @@
     </div>     
     
   </div>
+  
+<div class="modal" tabindex="-1" id="kiosk" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Kiosk Mode</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>You are in kiosk mode now.</p>
+      </div>
+    </div>
+  </div>
+</div>  
+  
+  
  </body>
 </html> 
 
