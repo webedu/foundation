@@ -2,6 +2,7 @@
  $pages = collectPages(".");
 ?>
 
+<!-- index_pages.php -->
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +29,12 @@
         <img style="margin-bottom:10px; display:none" class="float-right" id="backward" src="/common/img/backward.png"> 
       </div>
        <div class="col-md-4 col-sm-5 menu">
-       <h2><?php echo $metadata['title']['data']; ?></h2>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"><?php echo $metadata['title']['data']; ?></label>
+          </div>
+          <?php includePageSelect($pages); ?>
+        </div>	
        </div>
       <div class="col-md-6 col-sm-6">
         <a href="/" onclick="return confirm('Modul verlassen?')"><img style="margin-bottom:10px;" class="float-right" src="/common/img/webgeo_header.gif"></a>

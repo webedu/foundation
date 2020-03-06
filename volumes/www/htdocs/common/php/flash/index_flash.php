@@ -1,3 +1,4 @@
+<!-- index_flash.php -->
 <head>
 	<!-- Regular html head tags -->
 	<title><?php echo $metadata['title']['data']; ?></title>

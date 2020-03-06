@@ -18,6 +18,19 @@ function includePages($pages) {
   }
 }
 
+function includePageSelect($pages) {
+  $i=0;
+  $l=count($pages);
+  //$display = "";
+  echo "<select class='custom-select' id='page-select'>\n";
+  foreach($pages as $page) {
+    $i++;
+    echo "<option value='".$i."'>Page: ".$i." / ".$l."</option>\n";
+    // $display = "display: none";  // panorama.... needs resize, hide in init instead
+  }	
+  echo "</select>\n";
+}
+
 function javascriptPages($pages) {
   $i=0;
   $pageIds=[]; 
