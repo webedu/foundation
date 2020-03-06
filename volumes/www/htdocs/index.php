@@ -21,6 +21,7 @@
  } else {
     $subTopics = getSubTopics($topic, $moduleData);
  }
+ $protocol = stripos($_SERVER['REQUEST_SCHEME'],'https') === 0 ? 'https://' : 'http://';
  $trackModule = $_GET['module'];
  if('image'==$topic and is_string($trackModule) and strlen($trackModule) >= 3) {
   //echo(' '.$trackModule.' ');  
@@ -36,23 +37,26 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" --> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="http://www.webgeo.de">
+  <base href="<?= $protocol ?>www.webgeo.de">
 
   <!-- Latest compiled and minified CSS -->
   <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" -->
-  <link rel="stylesheet" href="/common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
+  <link rel="stylesheet" href="common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
+  <link href="common/vendor/fonts/awesome.min.css" rel="stylesheet" type="text/css" w4u-type="global">
   <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="common/vendor/jquery/jquery.min.js"></script>
+  <!-- Popper & Bootstrap JS -->
+  <script src="common/vendor/bootstrap/popper.min.js" type="text/javascript"></script>
+  <script src="common/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
   <script src="common/js/wordcloud2.js"></script>
   <script src="common/js/flash.js"></script> 
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/main.css" media="screen" /-->
   <link rel="stylesheet" type="text/css" href="common/css/main.css" media="screen" />  
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/navigation.css" media="screen" /-->
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/contents.css" media="screen" /-->
+
+  <link rel="stylesheet" type="text/css" href="common/vendor/cookie/cookieconsent.min.css" /> 
+
 
   <!--link rel="shortcut icon" type="image/x-icon" href="http://www.uni-freiburg.de/favicon.ico" /-->
   <link rel="shortcut icon" type="image/x-icon" href="common/img/favicon.ico">
@@ -67,6 +71,33 @@
  ?>
  
  <body>
+    <script src="common/vendor/cookie/cookieconsent.min.js"></script>
+	  <script>
+	  // https://www.osano.com/cookieconsent/documentation/javascript-api/
+   window.cookieconsent.initialise({
+    container: document.getElementById("content"),
+	content: {
+		href: 'impressum',
+		message: 'Diese Webseite benutzt Cookies um die Bedienung zu verbessern.',
+        dismiss: 'OK',
+		link: 'Mehr Informationen',
+		// close: '&#0000FF;',
+	},
+    palette:{
+     popup: {background: "#fff"},
+     button: {background: "#0000aa"},
+    },
+    revokable:true,
+    onStatusChange: function(status) {
+     console.log(this.hasConsented() ?
+      'enable cookies' : 'disable cookies');
+    },
+    law: {
+     regionalLaw: false,
+    },
+    location: true,
+   });
+  </script>
   <div class="container-fluid">
     <p style='font-size:1px;'>&nbsp;</p>
     <!--begin of header -->
@@ -105,7 +136,7 @@
 		
 	<script>
 		var state = initFlash("<?= $state ?>");
-        showFlash(state);		  
+        showFlash(state);
 	</script>
 		
       </div>
@@ -116,7 +147,7 @@
       <div class="col-md-1 col-sm-0"></div>  
       <div class="col-md-9 col-sm-11">       
         <div id="header_sub">
-          <div id="rootline">Sie sind hier:&nbsp;&nbsp; 
+          <div id="rootline">Sie sind hier:&nbsp;&nbsp;  
              <?php printBreadcrums($subTopics) ?>
           </div>
           <div id="zoominfo">
