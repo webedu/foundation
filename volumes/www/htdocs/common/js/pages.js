@@ -3,6 +3,7 @@ var pageData = {current:1, pages: ['empty']}
 
 function pageControl() {
 	  location.hash = '#' + pageData.current.toString();
+	  $('#page-select option').removeAttr('selected');	  
 	  $('#page-select option[value='+pageData.current.toString()+']').attr('selected','selected');
       $('#backward').prop('disabled', false).show();
       $('#forward').prop('disabled', false).show();	  
