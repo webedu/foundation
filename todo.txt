@@ -1,0 +1,11 @@
+Rust: WebComponents
+
+https://lib.rs/crates/webcomponent
+https://docs.rs/crate/webcomponent/0.1.3
+
+https://docs.rs/webcomponent/0.6.2/webcomponent/trait.CustomElement.html
+
+
+https://github.com/rustwasm/wasm_game_of_life
+
+
