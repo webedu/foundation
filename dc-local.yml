@@ -34,7 +34,7 @@ services:
     - cre-glue
 
   cre-php:
-   image: tamboraorg/crephprust:2018.0
+   image: tamboraorg/crephp:2018.0
    container_name: crephp
    environment:
      CRE_NGINX: crenginxphp
