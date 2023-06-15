@@ -1,19 +1,35 @@
 <?php
- //error_reporting (E_ALL ^ E_NOTICE);
+// ini_set('display_errors', '1');
+// error_reporting (E_ALL ^ E_NOTICE);
  include ("common/php/get_module_data.php");
  include ("common/php/mail_and_log.php");
  include ("common/php/redirect.php");
- $topic = trim($_SERVER['REDIRECT_URL'], ' /');
+ $host = 'www.webgeo.de';
+ if(array_key_exists('HTTP_HOST', $_SERVER)) {
+   $host = trim($_SERVER['HTTP_HOST'], ' /');
+ }
+ $protocol = stripos($_SERVER['REQUEST_SCHEME'],'https') === 0 ? 'https://' : 'http://';
+ $topic = '';
+ if(array_key_exists('REQUEST_URI', $_SERVER)) {
+   $topic = trim($_SERVER['REQUEST_URI'], ' /');
+ }
+ if(array_key_exists('REDIRECT_URL', $_SERVER)) {
+   $topic = trim($_SERVER['REDIRECT_URL'], ' /');
+ }
  if(!is_string($topic) or strlen($topic) < 1) {
    $topic = trim($_SERVER['PATH_INFO'], ' /');
  }
+ //print($topic);
  checkRedirect();	  
- $searchTerm = $_GET['search'];
- $moduleData = getModulesMetaData();
+ $searchTerm = array_key_exists('search', $_GET) ? $_GET['search'] : null;
+ $stringTerm = array_key_exists('string', $_GET) ? $_GET['string'] : null;
+ $errorTerm = array_key_exists('error', $_GET) ? $_GET['error'] : null;
+ $isoMode = array_key_exists('ISO', $_GET) ? $_GET['ISO'] : null;
+ $moduleData = getModulesMetaData(null, $protocol, $host);
  $subTopics = null;
  if(is_string($searchTerm) and strlen($searchTerm) >= 3) {
     $searchTerm = trim($searchTerm);
-    $subTopics = getSearchTopics($searchTerm, $moduleData);
+    $subTopics = getSearchTopics($searchTerm, $moduleData, $protocol, $host);
     $agent = $_SERVER['HTTP_USER_AGENT'];
     if(!isBot($agent)) {
       if ($subTopics['count']>0) {
@@ -21,10 +37,9 @@
         logIntoFile(strtolower($searchTerm), 'search_empty.txt', 500, TRUE, TRUE); }
     }
  } else {
-    $subTopics = getSubTopics($topic, $moduleData);
+    $subTopics = getSubTopics($topic, $moduleData, 0, $protocol, $host);
  }
- $protocol = stripos($_SERVER['REQUEST_SCHEME'],'https') === 0 ? 'https://' : 'http://';
- $trackModule = $_GET['module'];
+ $trackModule = array_key_exists('module', $_GET) ? $_GET['module'] : null;
  if('image'==$topic and is_string($trackModule) and strlen($trackModule) >= 3) {
   //echo(' '.$trackModule.' ');  
   logModule($trackModule); 
@@ -39,8 +54,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" --> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="<?= $protocol ?>www.webgeo.de">
-
+  <base href="<?= $protocol ?><?= $host ?>">
+  <link rel="shortcut icon" href="common/icons/favicon.ico" type="image/x-icon">
   <!-- Latest compiled and minified CSS -->
   <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" -->
   <link rel="stylesheet" href="common/vendor/bootstrap/bootstrap.min.css" type="text/css"  w4u-type="global"> 
@@ -52,6 +67,7 @@
   <script src="common/vendor/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
   <script src="common/js/wordcloud2.js"></script>
   <script src="common/js/flash.js"></script> 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/main.css" media="screen" /-->
   <link rel="stylesheet" type="text/css" href="common/css/main.css" media="screen" />  
   <!--link rel="stylesheet" type="text/css" href="fileadmin/templates/css/navigation.css" media="screen" /-->
@@ -70,6 +86,11 @@
   if(array_key_exists('flash',$_COOKIE) && !empty($_COOKIE['flash'])) {
     $state = $_COOKIE["flash"];     
   }
+  /*
+  if($isoMode) {
+	$state = "available";  // kiosk 
+  }
+  */
  ?>
  
  <body>
@@ -151,7 +172,7 @@
       <div class="col-md-9 col-sm-11">       
         <div id="header_sub">
           <div id="rootline">Sie sind hier:&nbsp;&nbsp;  
-             <?php printBreadcrums($subTopics) ?>
+             <?php printBreadcrums($subTopics, $protocol, $host) ?>
           </div>
           <div id="zoominfo">
             <a href="javascript:alert(&quot;[Strg] &amp; [+]: Vergrößern\n[Strg] &amp; [-]: Verkleinern\n[Strg] &amp; [0]: Reset\n\n[Crtl] &amp; [+]: Zoom in \n[Crtl] &amp; [-]: Zoom out \n[Crtl] &amp; [0]: Reset&quot;)">Zoom</a>
@@ -170,20 +191,20 @@
     <div class="row">
       <div class="col-md-1 col-sm-0"></div>
       <div class="col-md-3 col-sm-4 menu">
-        <?php printLeftMenu($moduleData, $topic, $searchTerm) ?>
+        <?php printLeftMenu($moduleData, $topic, $searchTerm, $protocol, $host) ?>
       </div>
       <div class="col-lg-6 col-md-7 col-sm-8 items">
         <?php 
             switch ($topic)
             {
                 case 'impressum': printRightImpressum(); break;
-                case 'kontakt': printRightKontakt();  break;
+                case 'kontakt': printRightKontakt($errorTerm);  break;
                 case 'history': printRightHistory();  break;
                 case 'visitors': printRightHeatMap();  break;
-                case 'home': printRightHome();  break; 
+                case 'home': printRightHome($protocol, $host);  break; 
                 default: 
                   if(('' == $topic) and ('' == $searchTerm))
-                  { printRightHome(); } 
+                  { printRightHome($protocol, $host); } 
                   else
                   { printRightModules($subTopics); } 
             }
@@ -197,10 +218,10 @@
      <div class="col-md-9 col-sm-11"> 
      <div id="header_sub"  class="text-center">     
       <span class="small">
-       <a href="http://www.webgeo.de/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp; 
-       <a href="http://www.webgeo.de/impressum">Impressum</a>&nbsp;&nbsp;&nbsp;|&nbsp; 
-       <a href="http://www.webgeo.de/kontakt">Kontakt</a>
-       <span style='font-size:1px;'>&nbsp<a href="http://www.webgeo.de/history">H</a></span>        
+       <a href="<?= $protocol ?><?= $host ?>">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp; 
+       <a href="<?= $protocol ?><?= $host ?>/impressum">Impressum</a>&nbsp;&nbsp;&nbsp;|&nbsp; 
+       <a href="<?= $protocol ?><?= $host ?>/kontakt">Kontakt</a>
+       <span style='font-size:1px;'>&nbsp<a href="<?= $protocol ?><?= $host ?>/history">H</a></span>        
       </span>
      </div>      
      </div>
@@ -213,13 +234,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Kiosk Mode</h5>
+        <h5 class="modal-title">Lernumgebung WEBGEO - Kiosk Modus</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>You are in kiosk mode now.</p>
+
+        <div><p><img src="/lernkiosk/webgeo_logo_lernkiosk_klein.jpg"></p></div>
+		<p>Glückwunsch zur erfolgreichen Nutzung von <strong>WEBGEO</strong> mit Hilfe der Applikation <strong>WEBGEO lernkiosk</strong>. Diese Applikation wird eingesetzt, um Flash Inhalte in <strong>WEBGEO</strong> auch dann anzeigen zu können, wenn auf dem eigenen Rechner kein Flash Plugin verfügbar ist oder Flash Inhalte geblockt werden.</p>
+		<p>Hinweise zur Bedienung und zum Konzept von <strong>WEBGEO lernkiosk</strong> findest du <a href="lernkiosk/bedienung">HIER</a>.</p>
+		<p>Die Nutzung von <strong>WEBGEO lernkiosk</strong> erolgt unter der <a href="lernkiosk/lizenz"><strong>Educational Community License, Version 2.0 (ECL-2.0)</strong></a>.</p>
       </div>
     </div>
   </div>
@@ -261,9 +286,9 @@ function printMiscMenu()
 
 
 
-function printLeftMenu($moduleData, $topic, $searchTerm='')
+function printLeftMenu($moduleData, $topic, $searchTerm='', $protocol='http://', $host='www.webgeo.de')
 {
-  $topics = getMainTopics($moduleData);
+  $topics = getMainTopics($moduleData, $protocol, $host);
   echo "<div id='navigation'>\n";
   echo " <ul class='navi'>\n";
   //printSearchMenu($searchTerm);
@@ -287,10 +312,10 @@ function printLeftMenu($moduleData, $topic, $searchTerm='')
   echo "</div> <!-- end of navigation -->\n";
 }
 
-function printRightHome()
+function printRightHome($protocol='http://', $host='www.webgeo.de')
 {
   logIp();
-  $words = getCloudTags(null);
+  $words = getCloudTags(null, $protocol, $host);
   $history = inqSearchHistory(50);
   foreach($history['history'] as $search)
   { $words[$search] += 6.5; }
@@ -313,6 +338,7 @@ function printRightHome()
   }
   $jsArray .= "]";  
   echo " <h5 class='text-center'><b>WEBGEO</b></h5>\n";
+  echo " <p class='small alertBox'>Seit der Einstellung des Adobe Flash Players seit dem 1.1.2021 läuft diese Seite unter dem Flash-Emulator Ruffle. Da sich dieser noch in der Entwicklung befinden, kann es dabei allerdings zu Problemen kommen. Bitte nutzen sie die Möglichkeit, Fehler direkt auf der betroffenen WEBGEO-Seite zu melden (bitte für jede Seite einen einzelnen Report).<br/><br/>Alternativ können sie die WEBGEO-Module auch in einem <a href='/lernkiosk/bedienung' target='lernkiosk'><b>Lernkiosk</b></a> nach einer lokalen <a href='/lernkiosk/installation' target='lernkiosk'><b>Installation</b></a> nutzen.</p>\n";
   echo "<div id='sourrounding_div' style='width:100%;height:400px'>\n";
   echo " <canvas id='canvas' class='canvas' style='display: block;'></canvas>\n";
   echo " <div id='canvasbox' hidden></div> \n";    
@@ -322,6 +348,8 @@ function printRightHome()
   echo "var canvasElement = document.getElementById('canvas'); \n"; 
   echo "canvasElement.width = canvasSurround.offsetWidth; \n";
   echo "canvasElement.height = canvasSurround.offsetHeight; \n"; 
+  echo "var canvasOffset = 0 + canvasElement.offsetTop - 1; \n";
+  echo "if(isKioskMode()) { canvasOffset = 25; } \n";
   echo "var boxit = $('#canvasbox'); \n"; 
   echo "window.drawBox = function drawBox(item, dimension) { \n";
   echo "  if (!dimension) { \n";
@@ -331,7 +359,8 @@ function printRightHome()
   echo "  boxit.prop('hidden', false); \n";
   echo "  boxit.css({ \n";
   echo "    left: dimension.x + 15 + 'px', \n";
-  echo "    top: dimension.y + 25 + 'px', \n";
+//  echo "    top: dimension.y + 25 + 'px', \n";
+  echo "    top: dimension.y + canvasOffset + 'px', \n";  
   echo "    width: dimension.w + 2 + 'px', \n";
   echo "    height: dimension.h + 2 + 'px' \n";
   echo "  }); \n";
@@ -355,7 +384,7 @@ function printRightHome()
   echo "      color: 'random-dark', \n";  
   echo "      hover: window.drawBox, \n";    
   echo "      click: function(item) { \n";
-  echo "        window.location.href = 'http://www.webgeo.de/?search='+item[0]; \n";
+  echo "        window.location.href = '<?= $protocol ?><?= $host ?>/?search='+item[0]; \n";
   echo "      } \n";   
   echo "  } \n"; 
   echo "  ); \n";
@@ -378,7 +407,7 @@ function printRightImpressum()
   echo " <p class='small'>Die Inhalte der einzelnen Module liegen in der Verantwortung der genannten Autoren.</p>\n";
 }
 
-function printRightKontakt()
+function printRightKontakt($errorTerm=null)
 {
   echo " <h5><b>Kontakt</b></h5>\n";
   echo " <p class='small'>\n";
@@ -386,7 +415,7 @@ function printRightKontakt()
   echo " Schreiberstraße 20 <br/>\n";
   echo " 79085 Freiburg im Breisgau<br/>\n";
   echo " </p>\n";
-  echo " <span class='small'>Ansprechpartner: </span><a href='https://www.geographie.uni-freiburg.de/ipg/team/saurer_helmut' target='_blank'>Dr. Helmut Saurer</a><br/>\n";
+  echo " <span class='small'>Ansprechpartner: </span><a href='https://www.geographie.uni-freiburg.de/de/professuren/physische-geographie/team-und-kontakt/saurer-helmut' target='_blank'>Dr. Helmut Saurer</a><br/>\n";
   echo " <p class='small'>Tel.: +49 - (0) 761 - 203 - 3537<br/>\n";
   echo " Fax: +49 - (0) 761 - 203 - 3596<br/>\n";
   echo " </p>\n";  
@@ -399,7 +428,7 @@ function printRightKontakt()
   } 
   if ($errorInMail)
   {
-    printMailForm();
+    printMailForm($errorTerm);
   } else {
     echo "<br/><p> Mail gesendet </p>";    
   }
@@ -419,7 +448,7 @@ function printRightHistory()
     echo " <h6>With Results</h6>\n";
     foreach($all['history'] as $searchTopic)
     {
-       $url = 'http://www.webgeo.de/?search='.urlencode(trim($searchTopic));
+       $url = '<?= $protocol ?><?= $host ?>/?search='.urlencode(trim($searchTopic));
        echo "<a href='".$url."'>".htmlspecialchars($searchTopic, ENT_QUOTES, "UTF-8")."</a><br/>\n";
     }
     echo "  </div>\n";
@@ -463,8 +492,10 @@ function printRightHeatMap()
 
 function printRightModules($subTopics)
 {
-    foreach ($subTopics['data'] as $toc0=>$data1)
-    {
+    //var_dump($subTopics);
+    if(is_array($subTopics) && array_key_exists('data', $subTopics)) {
+      foreach ($subTopics['data'] as $toc0=>$data1)
+      {
         if ('' != $toc0) { echo "<h3>".$toc0."</h3>\n"; }
         foreach ($data1 as $toc1=>$data2)
         {
@@ -500,23 +531,32 @@ function printRightModules($subTopics)
                 }     
             }     
         }    
+      }
     } 
+    //var_dump($subTopics);
 }
 
-function printBreadcrums($subTopics)
+function printBreadcrums($subTopics, $protocol='http://', $host='www.webgeo.de')
 {
-  echo "<a href='http://www.webgeo.de/'>WEBGEO</a>\n";
-  foreach($subTopics['breadcrums'] as $toc)
-  {
-    echo "&nbsp;/&nbsp;";
-    $topic = urlencode(strtolower($toc));
-    echo "<a href='".$topic."/'>".$toc."</a>\n";
+  //echo "<a href='http://www.webgeo.de/info.php'>I </a>\n";
+  echo "<a href='".$protocol.$host."/'>WEBGEO</a>\n";
+  if(is_array($subTopics) && array_key_exists('breadcrums', $subTopics)) {
+    foreach($subTopics['breadcrums'] as $toc)
+    {
+      echo "&nbsp;/&nbsp;";
+      $topic = urlencode(strtolower($toc));
+      echo "<a href='".$topic."/'>".$toc."</a>\n";
+    }
   }
 }
 
 function printTitle($subTopics)
 {
-    $counting = count($subTopics['breadcrums']);
+    //var_dump([' BEGIN ',$subTopics,' END ']);
+    $counting = 0;
+    if(is_array($subTopics) && array_key_exists('breadcrums', $subTopics)) {
+      $counting = countOrNull($subTopics['breadcrums']);
+    }
     echo ($counting > 0) ? $subTopics['breadcrums'][$counting - 1] : "WEBGEO"; 
 }
 ?>

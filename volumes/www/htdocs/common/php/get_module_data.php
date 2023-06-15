@@ -1,7 +1,14 @@
 <?php
 include ("common/php/get_metadata.php");
 
-function getModuleMetaData($moduleId)
+function countOrNull($list) 
+{
+   if(is_null($list)) { return 0; }
+   // better: if is countable
+   return count($list);
+}
+
+function getModuleMetaData($moduleId, $protocol='http://', $host='www.webgeo.de')
 {
    $moduleDir = 'modules'; 
    $metaDataPath = 'metadata/wm_lom.xml';
@@ -41,7 +48,7 @@ function getModuleMetaData($moduleId)
           {  $result['keywords'] = explode("<br/>\n",$item['data']); }        
       }
       // overwrite URL (as it is wrong in metadata)
-      $result['url'] = 'http://www.webgeo.de/'.$moduleId.'/';
+      $result['url'] = $protocol.$host.'/'.$moduleId.'/';
       if($counter>= 6) 
         { $result['complete'] = true; }
    }
@@ -67,24 +74,24 @@ function getAllModules()
    return $result;
 }
 
-function getModulesMetaData($modules = null) 
+function getModulesMetaData($modules = null, $protocol='http://', $host='www.webgeo.de') 
 {
     $result = [];
     if(is_null($modules = null)) 
     { $modules = getAllModules(); }
     foreach($modules as $module)
     {
-        $metadata = getModuleMetaData($module);        
-        $no_categories = max(count($metadata['TOC0']),
-                             count($metadata['TOC1']),
-                             count($metadata['TOC2']),
-                             count($metadata['TOC3']));
+        $metadata = getModuleMetaData($module, $protocol, $host);        
+        $no_categories = max(countOrNullv($metadata['TOC0']),
+                             countOrNull($metadata['TOC1']),
+                             countOrNull($metadata['TOC2']),
+                             countOrNull($metadata['TOC3']));
         for($i = 0; $i < $no_categories; $i++)
         {
-            $toc0 = $metadata['TOC0'][$i % count($metadata['TOC0'])];
-            $toc1 = $metadata['TOC1'][$i % count($metadata['TOC1'])];
-            $toc2 = $metadata['TOC2'][$i % count($metadata['TOC2'])];
-            $toc3 = $metadata['TOC3'][$i % count($metadata['TOC3'])];
+            $toc0 = $metadata['TOC0'][$i % countOrNull($metadata['TOC0'])];
+            $toc1 = $metadata['TOC1'][$i % countOrNull($metadata['TOC1'])];
+            $toc2 = $metadata['TOC2'][$i % countOrNull($metadata['TOC2'])];
+            $toc3 = $metadata['TOC3'][$i % countOrNull($metadata['TOC3'])];
             $reset = false;
             if ('fw'==substr($metadata['module'],0,2) or 'fao'==substr($metadata['module'],0,3))
             {
@@ -116,11 +123,11 @@ function getModulesMetaData($modules = null)
     return $result;     
 }
 
-function getMainTopics($moduleData = null)
+function getMainTopics($moduleData = null, $protocol='http://', $host='www.webgeo.de')
 {
     $result = [];
     if(is_null($moduleData = null)) 
-    { $moduleData = getModulesMetaData(); }  
+    { $moduleData = getModulesMetaData(null, $protocol, $host); }  
     
     foreach($moduleData as $toc0 => $innerData)
     {
@@ -143,11 +150,11 @@ function getMainTopics($moduleData = null)
     return $result;
 }
 
-function getSubTopics($topic = null, $moduleData = null, $level = 0)
+function getSubTopics($topic = null, $moduleData = null, $level = 0, $protocol='http://', $host='www.webgeo.de')
 {
     //var_dump($level);
     if(is_null($moduleData)) 
-    { $moduleData = getModulesMetaData(); } 
+    { $moduleData = getModulesMetaData(null, $protocol, $host); } 
     if(is_null($topic))
     { return ['data' => $moduleData, 'level' => 0, 'breadcrums' => [] ]; }
     if(!is_string($topic) or 0 == strlen($topic))
@@ -157,8 +164,10 @@ function getSubTopics($topic = null, $moduleData = null, $level = 0)
     if(is_string($topic) and ('kontakt' == $topic))
     { return ['data' => [], 'level' => 0, 'breadcrums' => ['Kontakt'] ]; }
 
-    foreach($moduleData as $toc => $innerData)
-    {
+    //var_dump($moduleData);
+    if(is_array($moduleData)) {
+      foreach($moduleData as $toc => $innerData)
+      {
         $subTopic = urlencode(strtolower($toc));
         //echo "subtopic: ".$subTopic."\n";
         if($subTopic == $topic)
@@ -167,11 +176,12 @@ function getSubTopics($topic = null, $moduleData = null, $level = 0)
             ksort($innerData);  // if level < 2 else sort by minimum inner id
             return ['data' => ['' => $innerData], 'level' =>$level+1, 'breadcrums'=>[$toc]];
         }
+      }
     }
- 
-    foreach($moduleData as $toc => $innerData)
-    {
-        $result = getSubTopics($topic, $innerData, $level+1);
+    if(is_array($moduleData)) { 
+      foreach($moduleData as $toc => $innerData)
+      {
+        $result = getSubTopics($topic, $innerData, $level+1, $protocol, $host);
         if(!is_null($result))
         {
             $breadcrums = $result['breadcrums'];
@@ -181,35 +191,40 @@ function getSubTopics($topic = null, $moduleData = null, $level = 0)
                     'breadcrums' => $breadcrums
                     ];
         }
+      }
     } 
     return null;
 }
 
 
 
-function getCloudTags($moduleData = null)
+function getCloudTags($moduleData = null, $protocol='http://', $host='www.webgeo.de')
 {
   $words = [];  
     
   if(is_null($moduleData)) 
-    { $moduleData = getModulesMetaData(); } 
+    { $moduleData = getModulesMetaData(null, $protocol, $host); } 
   foreach ($moduleData as $toc0=>$data1)
   {
       //$words[strtolower($toc0)]++;
       foreach ($data1 as $toc1=>$data2)
       {
+          if(!array_key_exists(strtolower($toc1), $words)) { $words[strtolower($toc1)] = 0; }
           $words[strtolower($toc1)]++;
           foreach ($data2 as $toc2=>$data3)
           {
+              if(!array_key_exists(strtolower($toc2), $words)) { $words[strtolower($toc2)] = 0; }
               $words[strtolower($toc2)]++;
               foreach ($data3 as $toc3=>$data4)
               {
+                  if(!array_key_exists(strtolower($toc3), $words)) { $words[strtolower($toc3)] = 0; }
                   $words[strtolower($toc3)]++;
                   foreach ($data4 as $item)
                   {
                     foreach ($item['keywords'] as $keyword)
                     {
-                      //echo $keyword.' ';                       
+                      //echo $keyword.' ';  
+                      if(!array_key_exists(strtolower($keyword), $words)) { $words[strtolower($keyword)] = 0; }
                       $words[strtolower($keyword)]++;  
                     }
                   }
@@ -220,10 +235,10 @@ function getCloudTags($moduleData = null)
   return $words;  
 }
 
-function getSearchTopics($search = null, $moduleData = null)
+function getSearchTopics($search = null, $moduleData = null, $protocol='http://', $host='www.webgeo.de')
 {
     if(is_null($moduleData)) 
-    { $moduleData = getModulesMetaData(); } 
+    { $moduleData = getModulesMetaData(null, $protocol, $host); } 
     if(!is_string($search) or strlen($search) < 3)
     { return ['data' => [], 'level' => 0, 'breadcrums' => [] ]; }
     $searchLower = strtolower($search);
@@ -255,33 +270,33 @@ function getSearchTopics($search = null, $moduleData = null)
                         }
                         }
                     }
-                    if (count($result4) > 0)
+                    if (countOrNull($result4) > 0)
                     {
                         $result3[$toc3] = $result4;
                     }
                 } 
-                if (count($result3) > 0)
+                if (countOrNull($result3) > 0)
                 {
                     $result2[$toc2] = $result3;
                 }                
             } 
-            if (count($result2) > 0)
+            if (countOrNull($result2) > 0)
             {
                 $result1[$toc1] = $result2;
             }            
         }
-        if (count($result1) > 0)
+        if (countOrNull($result1) > 0)
         {
             $result0[$toc0] = $result1;
         } 
     } 
-    if (count($found) == 0) 
+    if (countOrNull($found) == 0) 
     {
        $notFound0 = 'Kein Suchergebnis';
        $notFound1 = 'Kein Modul für den Begriff "'.htmlspecialchars($search, ENT_QUOTES, "UTF-8").'" gefunden.';
        $result0[$notFound0] = [$notFound1 => []];      
     }
-    return ['data' => $result0, 'level' => 0, 'breadcrums' => [], 'count' => count($found) ];
+    return ['data' => $result0, 'level' => 0, 'breadcrums' => [], 'count' => countOrNull($found) ];
 }
 
 ?>
