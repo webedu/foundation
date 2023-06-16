@@ -63,7 +63,7 @@ function javascriptFlashes($flashes) {
     $pageIds[]= "'#page_".$i."'";
   }
   $js = "pageData = {current:1, pages: [";
-  $js .= implode($pageIds, ",");
+  $js .= implode(",",$pageIds);
   $js .= "]};";
   $js .= " initPages();";
   echo "<script>".$js."</script>\n";
