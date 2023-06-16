@@ -187,7 +187,7 @@ function sendMail($postData, $to = 'helmut.saurer@geographie.uni-freiburg.de')
   
   if (isset($postData['g-recaptcha-response']) && !empty($postData['g-recaptcha-response'])) 
   {
-	 $secret = '6LcUOq4bAAAAAO18iz3-gBfS9g2LSHMTjNP0lenp'; 
+	 $secret = 'aaaaaaaaaaa-bbbbbbbbbbbbbbbbbbbb'; 
      $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$postData['g-recaptcha-response']);
 	 $responseData = json_decode($verifyResponse); 
 	 if ($responseData->success) 

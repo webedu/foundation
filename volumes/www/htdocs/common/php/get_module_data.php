@@ -82,7 +82,7 @@ function getModulesMetaData($modules = null, $protocol='http://', $host='www.web
     foreach($modules as $module)
     {
         $metadata = getModuleMetaData($module, $protocol, $host);        
-        $no_categories = max(countOrNullv($metadata['TOC0']),
+        $no_categories = max(countOrNull($metadata['TOC0']),
                              countOrNull($metadata['TOC1']),
                              countOrNull($metadata['TOC2']),
                              countOrNull($metadata['TOC3']));
